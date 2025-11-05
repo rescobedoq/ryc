@@ -3,9 +3,9 @@
 
 ## Integrantes del equipo
 
-- Choquehuanca Zapana Hernan Andy
-- Larico Rodriguez Bryan Fernando
-- Portugal Portugal Eduardo Sebastian
+- Choquehuanca Zapana Hernan Andy (**Rama:** `hz07s/workspace`)
+- Larico Rodriguez Bryan Fernando (**Rama:** `BryanLarico/workspace`)
+- Portugal Portugal Eduardo Sebastian (**Rama:** `Eduardo-P/workspace`)
 - Mamani Anahua Victor Narciso (**Rama:** `victorma18/workspace`)
 
 # Proyecto: Videojuego Educativo de Carreras en Unity
