@@ -58,4 +58,6 @@ Esta mecánica fomenta la toma de decisiones rápidas, la concentración y el ap
 3. Selecciona la rama correspondiente a tu integrante para trabajar en tus tareas personales.
 4. ¡Comienza a desarrollar y aprender!
 
+
+
 ---
