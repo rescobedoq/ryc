@@ -1,0 +1,71 @@
+# ==========================================
+# Unity .gitignore (oficial + optimizado)
+# ==========================================
+
+# Archivos y carpetas generadas automáticamente
+[Ll]ibrary/
+[Tt]emp/
+[Oo]bj/
+[Bb]uild/
+[Bb]uilds/
+[Ll]ogs/
+[Mm]emoryCaptures/
+UserSettings/
+
+# Archivos de caché de paquetes
+Packages/com.unity.package-manager/
+
+# Archivos de configuración de IDEs
+.vscode/
+.idea/
+*.sln
+*.csproj
+*.unityproj
+*.pidb
+*.user
+*.booproj
+*.svd
+
+# Archivos del sistema operativo
+.DS_Store
+Thumbs.db
+
+# Archivos de compilación y temporales
+*.bak
+*.tmp
+*.swp
+*.lock
+
+# Archivos de colab/PlasticSCM
+.collabignore
+.plastic/
+PlasticSCM/
+
+# Builds exportadas
+*.apk
+*.aab
+*.xcodeproj
+*.xcworkspace
+*.exe
+*.app
+*.dll
+*.pdb
+*.mdb
+*.mp4
+*.zip
+
+# TextMesh Pro (archivos generados)
+Assets/TextMesh Pro/Resources/*.asset
+
+# Cache de Shader y Lighting
+Assets/**/LightingData.asset
+Assets/**/Lightmap-*.exr
+Assets/**/ReflectionProbe-*.exr
+
+# Configuración de sistema del usuario
+*.prefs
+*.mode
+
+# Archivos de Unity Cloud / Collaborate
+*.collabmeta
+
