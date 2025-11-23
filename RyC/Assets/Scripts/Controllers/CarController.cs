@@ -183,11 +183,6 @@ public class CarController : MonoBehaviour
     {
       mesh.rotation = quat;
     }
-    else
-    {
-      Vector3 euler = quat.eulerAngles;
-      mesh.localRotation = Quaternion.Euler(euler.x, mesh.localRotation.eulerAngles.y, mesh.localRotation.eulerAngles.z);
-    }
   }
 
   private void UpdateWheelMeshes()

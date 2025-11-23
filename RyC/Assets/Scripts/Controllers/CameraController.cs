@@ -4,8 +4,8 @@ public class CameraController : MonoBehaviour
 {
   [Header("Camera Settings")]
   [SerializeField] private Transform target;
-  [SerializeField] private Vector3 offset = new Vector3(0f, 2f, -5f);
-  [SerializeField] private float smoothSpeed = 0.125f;
+  [SerializeField] private Vector3 offset = new Vector3(0f, 1.5f, -3.5f);
+  [SerializeField] private float smoothSpeed = 1.5f;
   [SerializeField] private float rotationSpeed = 2f;
 
   private void LateUpdate()
@@ -13,7 +13,7 @@ public class CameraController : MonoBehaviour
     if (target == null) return;
 
     Vector3 desiredPosition = target.position + target.TransformDirection(offset);
-    Vector3 smoothedPosition = Vector3.Lerp(transform.position, desiredPosition, smoothSpeed);
+    Vector3 smoothedPosition = Vector3.Lerp(transform.position, desiredPosition, smoothSpeed * Time.deltaTime);
 
     transform.position = smoothedPosition;
 
