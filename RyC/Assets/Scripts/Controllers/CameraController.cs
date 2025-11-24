@@ -8,6 +8,9 @@ public class CameraController : MonoBehaviour
   [SerializeField] private float smoothSpeed = 1.5f;
   [SerializeField] private float rotationSpeed = 2f;
 
+  private PlayerIndex playerIndex;
+  private Camera cam;
+  
   private void LateUpdate()
   {
     if (target == null) return;

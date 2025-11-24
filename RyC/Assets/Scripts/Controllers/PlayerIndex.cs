@@ -1,0 +1,1 @@
+public enum PlayerIndex { One, Two }

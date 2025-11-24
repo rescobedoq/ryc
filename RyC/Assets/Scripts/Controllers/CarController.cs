@@ -4,8 +4,6 @@ using System.Collections;
 [RequireComponent(typeof(Rigidbody))]
 public class CarController : MonoBehaviour
 {
-  public enum PlayerIndex { One, Two }
-
   [Header("Player Settings")]
   [SerializeField] private PlayerIndex playerIndex = PlayerIndex.One;
 
