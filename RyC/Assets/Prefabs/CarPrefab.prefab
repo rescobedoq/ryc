@@ -602,7 +602,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 5b2fc27bdd8f97e4e8e00a027bfe8b58, type: 3}
       propertyPath: m_Name
-      value: Car_McLaren_Orange2
+      value: CarPrefab
       objectReference: {fileID: 0}
     - target: {fileID: 4974690274376295144, guid: 5b2fc27bdd8f97e4e8e00a027bfe8b58, type: 3}
       propertyPath: m_LocalScale.x
