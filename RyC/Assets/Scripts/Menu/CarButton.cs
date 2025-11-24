@@ -10,9 +10,10 @@ public class CarButton : MonoBehaviour
   public Image highlightImage;  // Imagen de fondo para brillo (color verde al seleccionar)
   public CarStatsDisplay statsDisplay;
 
-  private CarData carData;
+  public CarData carData;
   private bool isSelected = false;
-  public static System.Action<CarData> OnCarSelected;  // Evento para notificar al manager
+  public static System.Action<CarButton> OnCarSelected;  // Pasa el botón entero
+  //public static System.Action<CarData> OnCarSelected;  // Evento para notificar al manager
 
   public void Initialize(CarData data)
   {
@@ -30,6 +31,7 @@ public class CarButton : MonoBehaviour
     highlightImage.color = isSelected ? Color.green : Color.clear;  // Brillo verde
     transform.localScale = isSelected ? Vector3.one * 1.1f : Vector3.one;  // Escala
 
-    if (isSelected) OnCarSelected?.Invoke(carData);  // Notifica
+    if (isSelected) OnCarSelected?.Invoke(this);  // Pasa 'this' (el botón)
+    //if (isSelected) OnCarSelected?.Invoke(carData);  // Notifica
   }
 }

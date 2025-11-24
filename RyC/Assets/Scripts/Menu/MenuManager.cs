@@ -73,16 +73,41 @@ public class MenuManager : MonoBehaviour
     foreach (Transform child in multiScrollContent2) Destroy(child.gameObject);
   }
 
-  private void OnCarSelected(CarData car)
-  {
-    if (currentMode == GameMode.SinglePlayer)
-      selectedCar1 = car;
-    else if (/* Detecta cuál ScrollView, e.g., via tag o parámetro */)
-      selectedCar1 = car;  // Para P1
-    else
-      selectedCar2 = car;  // Para P2
+//   private void OnCarSelected(CarData car)
+//   {
+//     if (currentMode == GameMode.SinglePlayer)
+//       selectedCar1 = car;
+//     else if (/* Detecta cuál ScrollView, e.g., via tag o parámetro */)
+//       selectedCar1 = car;  // Para P1
+//     else
+//       selectedCar2 = car;  // Para P2
 
-    // Habilita "Jugar" solo si hay selección
+//     // Habilita "Jugar" solo si hay selección
+//     playButton.interactable = (currentMode == GameMode.SinglePlayer && selectedCar1 != null) ||
+//                              (currentMode == GameMode.MultiPlayer && selectedCar1 != null && selectedCar2 != null);
+//   }
+
+  private void OnCarSelected(CarButton selectedButton)
+  {
+    CarData car = selectedButton.carData;  // Extrae el data del botón
+  
+    if (currentMode == GameMode.SinglePlayer)
+    {
+      selectedCar1 = car;
+    }
+    else  // MultiPlayer: Detecta por parent
+    {
+      if (selectedButton.transform.IsChildOf(multiScrollContent1))
+      {
+        selectedCar1 = car;  // P1 seleccionó
+      }
+      else if (selectedButton.transform.IsChildOf(multiScrollContent2))
+      {
+        selectedCar2 = car;  // P2 seleccionó
+      }
+    }
+  
+    // Habilita "Jugar" solo si hay selección completa
     playButton.interactable = (currentMode == GameMode.SinglePlayer && selectedCar1 != null) ||
                              (currentMode == GameMode.MultiPlayer && selectedCar1 != null && selectedCar2 != null);
   }
