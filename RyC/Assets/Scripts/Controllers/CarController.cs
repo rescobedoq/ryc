@@ -15,14 +15,14 @@ public class CarController : MonoBehaviour
 
   [Header("Movement Settings")]
   public float BaseSpeed = 50f;
-  public float BaseAcceleration = 1000f;
+  public float BaseAcceleration = 10000f;
   public float SteeringForce = 30f;
   public float BrakeForce = 500f;
-  public float MaxSpeed = 60f;
+  public float MaxSpeed = 100f;
 
   [Header("Physics Settings")]
   [SerializeField] private float downForce = 50f;
-  [SerializeField] private float normalDrag = 0.3f;
+  [SerializeField] private float normalDrag = 0.0001f;
   [SerializeField] private float boostDrag = 0.1f;
   [SerializeField] private float slowDrag = 0.5f;
 
@@ -136,7 +136,9 @@ public class CarController : MonoBehaviour
   {
     float force = input * BaseAcceleration;
 
-    if (CurrentSpeed < MaxSpeed)
+    // CAMBIO AQUÍ: Velocidad FORWARD en vez de magnitude total
+    float forwardSpeed = Vector3.Dot(rb.velocity, transform.forward);
+    if (forwardSpeed < MaxSpeed)
     {
       // Asume que las ruedas traseras son los índices 2 y 3
       for (int i = 0; i < wheelColliders.Length; i++)
@@ -147,6 +149,17 @@ public class CarController : MonoBehaviour
           wheelColliders[i].motorTorque = 0;
       }
     }
+    // if (CurrentSpeed < MaxSpeed)
+    // {
+    //   // Asume que las ruedas traseras son los índices 2 y 3
+    //   for (int i = 0; i < wheelColliders.Length; i++)
+    //   {
+    //     if (i == 2 || i == 3)
+    //       wheelColliders[i].motorTorque = force;
+    //     else
+    //       wheelColliders[i].motorTorque = 0;
+    //   }
+    // }
   }
 
   public void ApplySteering(float input)

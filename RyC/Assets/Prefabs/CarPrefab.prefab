@@ -727,12 +727,12 @@ MonoBehaviour:
   - {fileID: 4689745301016326169}
   - {fileID: 211071919603752859}
   BaseSpeed: 1
-  BaseAcceleration: 1000
+  BaseAcceleration: 10000
   SteeringForce: 30
   BrakeForce: 500
-  MaxSpeed: 9.75
+  MaxSpeed: 100
   downForce: 50
-  normalDrag: 0.3
+  normalDrag: 0.0001
   boostDrag: 0.1
   slowDrag: 0.5
 --- !u!4 &8606923703653144775 stripped
