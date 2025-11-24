@@ -12,12 +12,12 @@ public class MultiplayerManager : MonoBehaviour
     // Spawn P1
     var car1 = Instantiate(carPrefab, spawnPoint1.position, spawnPoint1.rotation);
     var ctrl1 = car1.GetComponent<CarController>();
-    ctrl1.SetPlayerIndex(CarController.PlayerIndex.One);
+    ctrl1.SetPlayerIndex(PlayerIndex.One);
 
     // Spawn P2
     var car2 = Instantiate(carPrefab, spawnPoint2.position, spawnPoint2.rotation);
     var ctrl2 = car2.GetComponent<CarController>();
-    ctrl2.SetPlayerIndex(CarController.PlayerIndex.Two);
+    ctrl2.SetPlayerIndex(PlayerIndex.Two);
 
     // Desactiva cámara principal si existe
     var mainCam = Camera.main;

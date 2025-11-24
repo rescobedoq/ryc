@@ -52,6 +52,8 @@ public class CarController : MonoBehaviour
     playerIndex = index;
   }
 
+  public PlayerIndex GetPlayerIndex() => playerIndex;
+
   private void Start()
   {
     InitializeComponents();

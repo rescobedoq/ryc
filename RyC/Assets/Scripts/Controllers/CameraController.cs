@@ -32,7 +32,7 @@ public class CameraController : MonoBehaviour
       var carCtrl = target.GetComponent<CarController>();
       if (carCtrl != null)
       {
-        playerIndex = carCtrl.playerIndex;
+        playerIndex = carCtrl.GetPlayerIndex();
         SetViewport();
       }
     }
