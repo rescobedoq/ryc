@@ -28,7 +28,7 @@ public class BoostedState : IVehicleState
 
   public void FixedUpdateState()
   {
-    carController.AppvehicleStabilization();
+    carController.ApplyVehicleStabilization();
   }
 
   public void ExitState()

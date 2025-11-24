@@ -40,7 +40,7 @@ public class CarController : MonoBehaviour
   private void InitializeComponents()
   {
     if (rb == null) rb = GetComponent<Rigidbody>();
-    //if (centerOfMass != null) rb.centerOfMass = centerOfMass.localPosition;
+    if (centerOfMass != null) rb.centerOfMass = centerOfMass.localPosition;
 
     ApplyNormalPhysics();
   }
@@ -148,7 +148,7 @@ public class CarController : MonoBehaviour
     }
   }
 
-  public void AppvehicleStabilization()
+  public void ApplyVehicleStabilization()
   {
     rb.AddForce(-transform.up * downForce * CurrentSpeed);
 

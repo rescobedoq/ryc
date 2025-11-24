@@ -28,7 +28,7 @@ public class SlowState : IVehicleState
 
   public void FixedUpdateState()
   {
-    carController.AppvehicleStabilization();
+    carController.ApplyVehicleStabilization();
   }
 
   public void ExitState()
