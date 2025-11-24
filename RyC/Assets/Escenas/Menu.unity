@@ -134,6 +134,7 @@ GameObject:
   - component: {fileID: 3702403}
   - component: {fileID: 3702402}
   - component: {fileID: 3702401}
+  - component: {fileID: 3702404}
   m_Layer: 5
   m_Name: BotonMcLaren
   m_TagString: Untagged
@@ -245,6 +246,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3702399}
   m_CullTransparentMesh: 1
+--- !u!114 &3702404
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3702399}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bfb2db79f98fd34458626aaf870a5bb9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  barText: {fileID: 1389392326}
+  bar: {fileID: 962901976}
 --- !u!1 &11018686
 GameObject:
   m_ObjectHideFlags: 0
