@@ -27,13 +27,14 @@ public class NormalState : IVehicleState
 
   public void HandleInput()
   {
-    float verticalInput = Input.GetAxis("Vertical");
-    float horizontalInput = Input.GetAxis("Horizontal");
-
-    carController.ApplyAcceleration(verticalInput);
+    var (verticalInput, horizontalInput, isBraking) = carController.GetPlayerInput();
+    
+    float multiplier = 1f;
+    
+    carController.ApplyAcceleration(verticalInput * multiplier);
     carController.ApplySteering(horizontalInput);
-
-    if (Input.GetKey(KeyCode.Space))
+    
+    if (isBraking)
     {
       carController.ApplyBraking();
     }

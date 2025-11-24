@@ -39,13 +39,14 @@ public class SlowState : IVehicleState
 
   public void HandleInput()
   {
-    float verticalInput = Input.GetAxis("Vertical");
-    float horizontalInput = Input.GetAxis("Horizontal");
-
-    carController.ApplyAcceleration(verticalInput * slowMultiplier);
+    var (verticalInput, horizontalInput, isBraking) = carController.GetPlayerInput();
+    
+    float multiplier = slowMultiplier;
+    
+    carController.ApplyAcceleration(verticalInput * multiplier);
     carController.ApplySteering(horizontalInput);
-
-    if (Input.GetKey(KeyCode.Space))
+    
+    if (isBraking)
     {
       carController.ApplyBraking();
     }

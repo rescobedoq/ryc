@@ -39,13 +39,14 @@ public class BoostedState : IVehicleState
 
   public void HandleInput()
   {
-    float verticalInput = Input.GetAxis("Vertical");
-    float horizontalInput = Input.GetAxis("Horizontal");
-
-    carController.ApplyAcceleration(verticalInput * boostMultiplier);
+    var (verticalInput, horizontalInput, isBraking) = carController.GetPlayerInput();
+    
+    float multiplier = boostMultiplier;
+    
+    carController.ApplyAcceleration(verticalInput * multiplier);
     carController.ApplySteering(horizontalInput);
-
-    if (Input.GetKey(KeyCode.Space))
+    
+    if (isBraking)
     {
       carController.ApplyBraking();
     }

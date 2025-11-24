@@ -4,6 +4,11 @@ using System.Collections;
 [RequireComponent(typeof(Rigidbody))]
 public class CarController : MonoBehaviour
 {
+  public enum PlayerIndex { One, Two }
+
+  [Header("Player Settings")]
+  [SerializeField] private PlayerIndex playerIndex = PlayerIndex.One;
+
   [Header("Component References")]
   [SerializeField] private Rigidbody rb;
   [SerializeField] private Transform centerOfMass;
@@ -30,6 +35,24 @@ public class CarController : MonoBehaviour
   public Rigidbody VehicleRigidbody => rb;
   public WheelCollider[] WheelColliders => wheelColliders;
   public float CurrentSpeed => rb.velocity.magnitude;
+
+  public (float vertical, float horizontal, bool brake) GetPlayerInput()
+  {
+    string verticalAxis = playerIndex == PlayerIndex.One ? "VerticalP1" : "VerticalP2";
+    string horizontalAxis = playerIndex == PlayerIndex.One ? "HorizontalP1" : "HorizontalP2";
+    
+    float verticalInput = Input.GetAxis(verticalAxis);
+    float horizontalInput = Input.GetAxis(horizontalAxis);
+    bool isBraking = playerIndex == PlayerIndex.One ? 
+      Input.GetKey(KeyCode.Space) : Input.GetKey(KeyCode.Return);
+    
+    return (verticalInput, horizontalInput, isBraking);
+  }
+
+  public void SetPlayerIndex(PlayerIndex index)
+  {
+    playerIndex = index;
+  }
 
   private void Start()
   {
@@ -203,8 +226,11 @@ public class CarController : MonoBehaviour
   // Debug GUI
   private void OnGUI()
   {
-    GUI.Label(new Rect(10, 10, 300, 20), $"Estado: {currentState.GetType().Name}");
-    GUI.Label(new Rect(10, 30, 300, 20), $"Velocidad: {CurrentSpeed:F1}");
-    GUI.Label(new Rect(10, 50, 300, 20), $"Controles: {(controlsEnabled ? "Activados" : "Desactivados")}");
+    Vector2 offset = playerIndex == PlayerIndex.One ? 
+      new Vector2(10, Screen.height * 0.75f) : new Vector2(10, 10);  // P1 abajo-izq, P2 arriba-izq
+    
+    GUI.Label(new Rect(offset.x, offset.y, 300, 20), $"P{playerIndex}: {currentState.GetType().Name}");
+    GUI.Label(new Rect(offset.x, offset.y + 20, 300, 20), $"Vel: {CurrentSpeed:F1}");
+    GUI.Label(new Rect(offset.x, offset.y + 40, 300, 20), $"Ctrls: {(controlsEnabled ? "ON" : "OFF")}");
   }
 }
