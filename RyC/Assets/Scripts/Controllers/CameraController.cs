@@ -40,14 +40,24 @@ public class CameraController : MonoBehaviour
 
   private void SetViewport()
   {
-    if (playerIndex == PlayerIndex.One)
+    // Lee modo de PlayerPrefs (set por menú)
+    bool isSinglePlayer = PlayerPrefs.GetInt("GameMode", (int)GameMode.SinglePlayer) == (int)GameMode.SinglePlayer;
+  
+    if (isSinglePlayer)
     {
-      cam.rect = new Rect(0f, 0f, 0.5f, 1f);  // Izquierda (P1)
+      cam.rect = new Rect(0f, 0f, 1f, 1f);  // Full screen para single (ignora playerIndex)
     }
-    else
+    else if (playerIndex == PlayerIndex.One)
     {
-      cam.rect = new Rect(0.5f, 0f, 0.5f, 1f);  // Derecha (P2)
+      cam.rect = new Rect(0f, 0f, 0.5f, 1f);  // Izquierda para P1 en multi
     }
+    else  // PlayerIndex.Two en multi
+    {
+      cam.rect = new Rect(0.5f, 0f, 0.5f, 1f);  // Derecha para P2 en multi
+    }
+  
+    // Debug temporal (borra después)
+    Debug.Log($"Viewport para {playerIndex} en modo {(isSinglePlayer ? "Single" : "Multi")}: {cam.rect}");
   }
 
   public void SetTarget(Transform newTarget)

@@ -41,9 +41,9 @@ public class MultiplayerManager : MonoBehaviour
       ApplyCarData(ctrl1, car1Name);  // Aplica atributos
   
       // Cámara full: En CameraController, si solo P1, set rect = new Rect(0,0,1,1);
-      var camCtrl1 = car1.GetComponentInChildren<CameraController>();
+      //var camCtrl1 = car1.GetComponentInChildren<CameraController>();
       //cam1.rect = new Rect(0f, 0f, 1f, 1f);  // Full screen
-      if (camCtrl1 != null) camCtrl1.cam.rect = new Rect(0f, 0f, 1f, 1f);
+      //if (camCtrl1 != null) camCtrl1.cam.rect = new Rect(0f, 0f, 1f, 1f);
   
       // Desactiva Main Cam
       //var mainCam = Camera.main; if (mainCam) mainCam.enabled = false;
