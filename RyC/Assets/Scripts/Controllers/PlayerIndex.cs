@@ -1,1 +1,1 @@
-public enum PlayerIndex { One, Two }
+//public enum PlayerIndex { One, Two }

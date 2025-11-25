@@ -1,11 +1,13 @@
 using UnityEngine;
 using System.Collections;
 
+public enum PlayerIndex { One, Two }
+
 [RequireComponent(typeof(Rigidbody))]
 public class CarController : MonoBehaviour
 {
   [Header("Player Settings")]
-  [SerializeField] private PlayerIndex playerIndex = PlayerIndex.One;
+  [SerializeField] public PlayerIndex playerIndex = PlayerIndex.One;
 
   [Header("Component References")]
   [SerializeField] private Rigidbody rb;
