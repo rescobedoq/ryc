@@ -5513,7 +5513,8 @@ MonoBehaviour:
   multiPlayerMenu: {fileID: 138657618}
   singleModeButton: {fileID: 2106183411}
   multiModeButton: {fileID: 2033264539}
-  playButton: {fileID: 1672590195}
+  singlePlayButton: {fileID: 1437362677}
+  multiPlayButton: {fileID: 1672590195}
   availableCars:
   - {fileID: 11400000, guid: 6ec350df48a4c5e46ba1beeb4d907998, type: 2}
   - {fileID: 11400000, guid: 369468593a78c4147abf2954055ef9aa, type: 2}

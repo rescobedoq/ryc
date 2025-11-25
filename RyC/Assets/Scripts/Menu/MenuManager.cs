@@ -12,7 +12,10 @@ public class MenuManager : MonoBehaviour
   public GameObject multiPlayerMenu;     // Panel con 2 ScrollViews
   public Button singleModeButton;        // Botón "1 Jugador"
   public Button multiModeButton;         // "2 Jugadores"
-  public Button playButton;              // "Jugar" (común)
+
+  [Header("Play Buttons (Independientes)")]
+  public Button singlePlayButton;        // "Jugar" en single menu
+  public Button multiPlayButton;         // "Jugar" en multi menu
 
   [Header("Car Selection")]
   public List<CarData> availableCars = new List<CarData>();  // Arrastra tus SO assets
@@ -22,37 +25,51 @@ public class MenuManager : MonoBehaviour
   public GameObject carButtonPrefab;
 
   private GameMode currentMode;
-  private CarData selectedCar1, selectedCar2;  // Opcional para 2P
+  private CarData selectedCar1, selectedCar2;  // Selecciones
+  private CarButton selectedButton1, selectedButton2;
 
   private void Start()
   {
+    // Suscribe botones de modo
     singleModeButton.onClick.AddListener(() => SelectMode(GameMode.SinglePlayer));
     multiModeButton.onClick.AddListener(() => SelectMode(GameMode.MultiPlayer));
-    playButton.onClick.AddListener(LoadGameScene);
 
-    // Inicial: Oculta submenús
+    // Suscribe botones de jugar (comunes, pero independientes)
+    if (singlePlayButton != null) singlePlayButton.onClick.AddListener(LoadGameScene);
+    if (multiPlayButton != null) multiPlayButton.onClick.AddListener(LoadGameScene);
+
+    // Inicial: Oculta submenús y desactiva botones de jugar
     singlePlayerMenu.SetActive(false);
     multiPlayerMenu.SetActive(false);
+    if (singlePlayButton != null) singlePlayButton.interactable = false;
+    if (multiPlayButton != null) multiPlayButton.interactable = false;
 
     // Suscribe a selección
     CarButton.OnCarSelected += OnCarSelected;
   }
 
   private void SelectMode(GameMode mode)
-  {
-    currentMode = mode;
-    singlePlayerMenu.SetActive(mode == GameMode.SinglePlayer);
-    multiPlayerMenu.SetActive(mode == GameMode.MultiPlayer);
+{
+  currentMode = mode;
+  singlePlayerMenu.SetActive(mode == GameMode.SinglePlayer);
+  multiPlayerMenu.SetActive(mode == GameMode.MultiPlayer);
 
-    // Limpia selecciones previas
-    selectedCar1 = null; selectedCar2 = null;
-    ClearScrollContents();
+  // Limpia selecciones y BOTONES previos
+  selectedCar1 = null;
+  selectedCar2 = null;
+  if (selectedButton1 != null) selectedButton1.Deselect(); selectedButton1 = null;  // <-- NUEVO
+  if (selectedButton2 != null) selectedButton2.Deselect(); selectedButton2 = null;  // <-- NUEVO
 
-    // Popula ScrollViews con botones
-    PopulateScrollView(singleScrollContent, mode == GameMode.SinglePlayer ? 1 : 0);
-    PopulateScrollView(multiScrollContent1, mode == GameMode.MultiPlayer ? 1 : 0);
-    PopulateScrollView(multiScrollContent2, mode == GameMode.MultiPlayer ? 1 : 0);
-  }
+  // Desactiva ambos botones de jugar al cambiar modo
+  if (singlePlayButton != null) singlePlayButton.interactable = false;
+  if (multiPlayButton != null) multiPlayButton.interactable = false;
+
+  // Limpia y popula ScrollViews
+  ClearScrollContents();
+  PopulateScrollView(singleScrollContent, mode == GameMode.SinglePlayer ? 1 : 0);
+  PopulateScrollView(multiScrollContent1, mode == GameMode.MultiPlayer ? 1 : 0);
+  PopulateScrollView(multiScrollContent2, mode == GameMode.MultiPlayer ? 1 : 0);
+}
 
   private void PopulateScrollView(Transform content, int playerCount)
   {
@@ -60,66 +77,97 @@ public class MenuManager : MonoBehaviour
 
     foreach (var car in availableCars)
     {
-      var button = Instantiate(carButtonPrefab, content).GetComponent<CarButton>();
-      button.Initialize(car);
+      var buttonObj = Instantiate(carButtonPrefab, content);
+      var button = buttonObj.GetComponent<CarButton>();
+      if (button != null)
+      {
+        button.Initialize(car);
+      }
+      else
+      {
+        Debug.LogError("CarButton no encontrado en prefab instanciado!");
+      }
     }
   }
 
   private void ClearScrollContents()
   {
-    // Borra botones viejos
-    foreach (Transform child in singleScrollContent) Destroy(child.gameObject);
-    foreach (Transform child in multiScrollContent1) Destroy(child.gameObject);
-    foreach (Transform child in multiScrollContent2) Destroy(child.gameObject);
+    // Borra botones viejos (usa DestroyImmediate en Editor para limpieza rápida)
+    foreach (Transform child in singleScrollContent) if (Application.isEditor) DestroyImmediate(child.gameObject); else Destroy(child.gameObject);
+    foreach (Transform child in multiScrollContent1) if (Application.isEditor) DestroyImmediate(child.gameObject); else Destroy(child.gameObject);
+    foreach (Transform child in multiScrollContent2) if (Application.isEditor) DestroyImmediate(child.gameObject); else Destroy(child.gameObject);
   }
-
-//   private void OnCarSelected(CarData car)
-//   {
-//     if (currentMode == GameMode.SinglePlayer)
-//       selectedCar1 = car;
-//     else if (/* Detecta cuál ScrollView, e.g., via tag o parámetro */)
-//       selectedCar1 = car;  // Para P1
-//     else
-//       selectedCar2 = car;  // Para P2
-
-//     // Habilita "Jugar" solo si hay selección
-//     playButton.interactable = (currentMode == GameMode.SinglePlayer && selectedCar1 != null) ||
-//                              (currentMode == GameMode.MultiPlayer && selectedCar1 != null && selectedCar2 != null);
-//   }
 
   private void OnCarSelected(CarButton selectedButton)
   {
-    CarData car = selectedButton.carData;  // Extrae el data del botón
+    CarData car = selectedButton.carData;
   
     if (currentMode == GameMode.SinglePlayer)
     {
+      // Deselecciona anterior si hay
+      if (selectedButton1 != null) selectedButton1.Deselect();
+      selectedButton1 = selectedButton;  // Nuevo seleccionado
       selectedCar1 = car;
+  
+      // Habilita botón de single
+      if (singlePlayButton != null) singlePlayButton.interactable = (selectedCar1 != null);
     }
-    else  // MultiPlayer: Detecta por parent
+    else  // MultiPlayer
     {
       if (selectedButton.transform.IsChildOf(multiScrollContent1))
       {
-        selectedCar1 = car;  // P1 seleccionó
+        // Deselecciona anterior P1
+        if (selectedButton1 != null) selectedButton1.Deselect();
+        selectedButton1 = selectedButton;
+        selectedCar1 = car;
       }
       else if (selectedButton.transform.IsChildOf(multiScrollContent2))
       {
-        selectedCar2 = car;  // P2 seleccionó
+        // Deselecciona anterior P2
+        if (selectedButton2 != null) selectedButton2.Deselect();
+        selectedButton2 = selectedButton;
+        selectedCar2 = car;
       }
+  
+      // Habilita multi solo si ambos
+      if (multiPlayButton != null) multiPlayButton.interactable = (selectedCar1 != null && selectedCar2 != null);
     }
   
-    // Habilita "Jugar" solo si hay selección completa
-    playButton.interactable = (currentMode == GameMode.SinglePlayer && selectedCar1 != null) ||
-                             (currentMode == GameMode.MultiPlayer && selectedCar1 != null && selectedCar2 != null);
+    Debug.Log($"Seleccionado: {car.carName} en modo {currentMode} - Solo este verde!");
+  }
+  
+  // Helper: Deselecciona todos los botones en un Content (excepto el actual si pasas)
+  private void DeselectAllButtonsInContent(Transform content, CarButton exceptThis = null)
+  {
+    foreach (Transform child in content)
+    {
+      var button = child.GetComponent<CarButton>();
+      if (button != null && button != exceptThis)
+      {
+        button.isSelected = false;
+        if (button.highlightImage != null)
+        {
+          button.highlightImage.color = Color.clear;  // Transparente
+        }
+        button.transform.localScale = Vector3.one;  // Escala normal
+      }
+    }
   }
 
   private void LoadGameScene()
   {
-    // Guarda en PlayerPrefs
+    // Guarda en PlayerPrefs (usa currentMode)
     PlayerPrefs.SetInt("GameMode", (int)currentMode);
     if (selectedCar1 != null) PlayerPrefs.SetString("Car1Name", selectedCar1.carName);
     if (selectedCar2 != null) PlayerPrefs.SetString("Car2Name", selectedCar2.carName);
     PlayerPrefs.Save();
 
     SceneManager.LoadScene("GameScene");  // Tu escena de juego
+  }
+
+  // Cleanup al destruir (opcional)
+  private void OnDestroy()
+  {
+    CarButton.OnCarSelected -= OnCarSelected;
   }
 }
