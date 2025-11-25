@@ -1869,7 +1869,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 670.0989, y: 300}
+  m_SizeDelta: {x: -258.0664, y: 300}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &573820505
 MonoBehaviour:
@@ -1960,7 +1960,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 670.0989, y: 300}
+  m_SizeDelta: {x: -258.0664, y: 300}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &652307667
 MonoBehaviour:
@@ -3010,7 +3010,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 2116550469}
   m_Direction: 0
   m_Value: 0
-  m_Size: 0.34825763
+  m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -5067,7 +5067,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 2046637567}
   m_Direction: 0
   m_Value: 0
-  m_Size: 0.34825763
+  m_Size: 1
   m_NumberOfSteps: 0
   m_OnValueChanged:
     m_PersistentCalls:
@@ -5516,10 +5516,10 @@ MonoBehaviour:
   singlePlayButton: {fileID: 1437362677}
   multiPlayButton: {fileID: 1672590195}
   availableCars:
-  - {fileID: 11400000, guid: 6ec350df48a4c5e46ba1beeb4d907998, type: 2}
-  - {fileID: 11400000, guid: 369468593a78c4147abf2954055ef9aa, type: 2}
-  - {fileID: 11400000, guid: d4f11121e4e1ee647927ddd60ee23510, type: 2}
-  - {fileID: 11400000, guid: 1f8765a0d559ff841986ae054be2c971, type: 2}
+  - {fileID: 11400000, guid: 719c502095ba3334489b22f171652fc9, type: 2}
+  - {fileID: 11400000, guid: 8d61afabc9653ab4896dcfb55251ce3a, type: 2}
+  - {fileID: 11400000, guid: eda3933e305f8234a83a1660901e1cc0, type: 2}
+  - {fileID: 11400000, guid: 46b0b391acbee6a4b87155142a5fada3, type: 2}
   singleScrollContent: {fileID: 1086828647}
   multiScrollContent1: {fileID: 652307666}
   multiScrollContent2: {fileID: 573820504}
@@ -5967,7 +5967,7 @@ RectTransform:
   m_Father: {fileID: 359975086}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0.34825763, y: 1}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -6421,7 +6421,7 @@ RectTransform:
   m_Father: {fileID: 1099806364}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0.34825763, y: 1}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 20, y: 20}
   m_Pivot: {x: 0.5, y: 0.5}

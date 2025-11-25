@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   carName: Bugatti
   carImage: {fileID: 21300000, guid: 1c30157babbe2c94886bc93a1d44631a, type: 3}
-  baseSpeed: 50
-  baseAcceleration: 50
-  steeringForce: 50
-  brakeForce: 50
-  maxSpeed: 50
+  baseSpeed: 30
+  baseAcceleration: 30
+  steeringForce: 30
+  brakeForce: 30
+  maxSpeed: 30

@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   carName: Audi
   carImage: {fileID: 21300000, guid: 93efdbac523e90940b5e927e70858f67, type: 3}
-  baseSpeed: 50
-  baseAcceleration: 50
-  steeringForce: 50
-  brakeForce: 50
-  maxSpeed: 50
+  baseSpeed: 20
+  baseAcceleration: 20
+  steeringForce: 20
+  brakeForce: 20
+  maxSpeed: 20

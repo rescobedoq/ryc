@@ -15,14 +15,19 @@ public class CarButton : MonoBehaviour
   public static System.Action<CarButton> OnCarSelected;  // Pasa el botón entero
 
   public void Initialize(CarData data)
-  {
-    carData = data;
-    carImage.sprite = data.carImage;
-    carNameText.text = data.carName;
-    statsDisplay.UpdateStats(data);
-    highlightImage.color = Color.clear;  // Inicial no selected
-    UpdateVisual();  // Llama para asegurar estado inicial
-  }
+{
+  carData = data;
+
+  // Debug extra para atributos (borra después)
+  Debug.Log($"Inicializando {data.carName}: Sprite null? {data.carImage == null}, Speed: {data.baseSpeed}, Accel: {data.baseAcceleration}, MaxSpeed: {data.maxSpeed}");
+
+  carImage.sprite = data.carImage;
+  carNameText.text = data.carName;
+  statsDisplay.UpdateStats(data);
+  highlightImage.color = Color.clear;
+  isSelected = false;
+  UpdateVisual();
+}
 
   public void OnClick()
   {
