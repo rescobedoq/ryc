@@ -17,6 +17,8 @@ Packages/com.unity.package-manager/
 
 # Archivos de configuración de IDEs
 .vscode/
+.vs/
+.vsidx
 .idea/
 *.sln
 *.csproj
