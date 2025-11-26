@@ -17,15 +17,15 @@ public class CarController : MonoBehaviour
 
     [Header("Movement Settings")]
     public float BaseSpeed = 50f;
-    public float BaseAcceleration = 10000f;
+    public float BaseAcceleration = 20000f;
     public float SteeringForce = 30f;
     public float BrakeForce = 500f;
-    public float MaxSpeed = 100f;
+    public float MaxSpeed = 220f;
 
     [Header("Physics Settings")]
     [SerializeField] private float downForce = 50f;
-    [SerializeField] private float normalDrag = 0.0001f;
-    [SerializeField] private float boostDrag = 0.1f;
+    [SerializeField] private float normalDrag = 0.00005f;
+    [SerializeField] private float boostDrag = 0.03f;
     [SerializeField] private float slowDrag = 0.5f;
 
     private IVehicleState currentState;
