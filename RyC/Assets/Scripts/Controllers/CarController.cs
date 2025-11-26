@@ -24,7 +24,7 @@ public class CarController : MonoBehaviour
 
     [Header("Physics Settings")]
     [SerializeField] private float downForce = 50f;
-    [SerializeField] private float normalDrag = 0.00005f;
+    [SerializeField] private float normalDrag = 0.015f;
     [SerializeField] private float boostDrag = 0.03f;
     [SerializeField] private float slowDrag = 0.5f;
 
@@ -92,6 +92,7 @@ public class CarController : MonoBehaviour
     private void FixedUpdate()
     {
         currentState.FixedUpdateState();
+        ApplyAutoFriction();
         UpdateWheelMeshes();
     }
 
@@ -106,6 +107,16 @@ public class CarController : MonoBehaviour
         currentState?.ExitState();
         currentState = newState;
         currentState.EnterState(this);
+    }
+
+    private void ApplyAutoFriction()
+    {
+        // Si no se está presionando ni W (avanzar) ni S (retroceder)
+        if (!Input.GetKey(KeyCode.W) && !Input.GetKey(KeyCode.S))
+        {
+            rb.velocity = Vector3.Lerp(rb.velocity, Vector3.zero, Time.fixedDeltaTime * 2f); 
+            // Puedes subir el "2f" para frenar más rápido (recomendado 2–4)
+        }
     }
 
     public void ApplyBoost()
@@ -139,20 +150,21 @@ public class CarController : MonoBehaviour
 
     public void ApplyAcceleration(float input)
     {
+        if (Mathf.Abs(input) < 0.01f)
+        {
+            for (int i = 2; i < wheelColliders.Length; i++)
+                wheelColliders[i].motorTorque = 0;
+
+            return;
+        }
+
         float force = input * BaseAcceleration;
 
-        // Velocidad SOLO en la dirección forward del coche
         float forwardSpeed = Vector3.Dot(rb.velocity, transform.forward);
         if (forwardSpeed < MaxSpeed)
         {
-            // Asume que las ruedas traseras son los índices 2 y 3
-            for (int i = 0; i < wheelColliders.Length; i++)
-            {
-                if (i == 2 || i == 3)
-                    wheelColliders[i].motorTorque = force;
-                else
-                    wheelColliders[i].motorTorque = 0;
-            }
+            for (int i = 2; i < wheelColliders.Length; i++)
+                wheelColliders[i].motorTorque = force;
         }
     }
 
