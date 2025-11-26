@@ -1,0 +1,171 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\Bryan\\Documents\\Semestre_6\\IDSE\\Proyecto\\ryc\\RyC\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{A10AAF9F-4AF7-ADE4-1ACA-C45DA074F5DE}|Assembly-CSharp.csproj|C:\\Users\\Bryan\\Documents\\Semestre_6\\IDSE\\Proyecto\\ryc\\RyC\\assets\\scripts\\controllers\\carcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A10AAF9F-4AF7-ADE4-1ACA-C45DA074F5DE}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\controllers\\carcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A10AAF9F-4AF7-ADE4-1ACA-C45DA074F5DE}|Assembly-CSharp.csproj|c:\\users\\bryan\\documents\\semestre_6\\idse\\proyecto\\ryc\\ryc\\assets\\scripts\\quiz\\portalanswertrigger.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A10AAF9F-4AF7-ADE4-1ACA-C45DA074F5DE}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\quiz\\portalanswertrigger.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A10AAF9F-4AF7-ADE4-1ACA-C45DA074F5DE}|Assembly-CSharp.csproj|C:\\Users\\Bryan\\Documents\\Semestre_6\\IDSE\\Proyecto\\ryc\\RyC\\assets\\scripts\\quiz\\metatrigger.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A10AAF9F-4AF7-ADE4-1ACA-C45DA074F5DE}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\quiz\\metatrigger.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A10AAF9F-4AF7-ADE4-1ACA-C45DA074F5DE}|Assembly-CSharp.csproj|c:\\users\\bryan\\documents\\semestre_6\\idse\\proyecto\\ryc\\ryc\\assets\\scripts\\patterns\\state\\slowstate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A10AAF9F-4AF7-ADE4-1ACA-C45DA074F5DE}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\patterns\\state\\slowstate.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A10AAF9F-4AF7-ADE4-1ACA-C45DA074F5DE}|Assembly-CSharp.csproj|c:\\users\\bryan\\documents\\semestre_6\\idse\\proyecto\\ryc\\ryc\\assets\\scripts\\quiz\\portalanswerdisplay.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A10AAF9F-4AF7-ADE4-1ACA-C45DA074F5DE}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\quiz\\portalanswerdisplay.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A10AAF9F-4AF7-ADE4-1ACA-C45DA074F5DE}|Assembly-CSharp.csproj|C:\\Users\\Bryan\\Documents\\Semestre_6\\IDSE\\Proyecto\\ryc\\RyC\\assets\\scripts\\quiz\\questionbank.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A10AAF9F-4AF7-ADE4-1ACA-C45DA074F5DE}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\quiz\\questionbank.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A10AAF9F-4AF7-ADE4-1ACA-C45DA074F5DE}|Assembly-CSharp.csproj|C:\\Users\\Bryan\\Documents\\Semestre_6\\IDSE\\Proyecto\\ryc\\RyC\\assets\\scripts\\quiz\\quizmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A10AAF9F-4AF7-ADE4-1ACA-C45DA074F5DE}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\quiz\\quizmanager.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A10AAF9F-4AF7-ADE4-1ACA-C45DA074F5DE}|Assembly-CSharp.csproj|C:\\Users\\Bryan\\Documents\\Semestre_6\\IDSE\\Proyecto\\ryc\\RyC\\assets\\scripts\\quiz\\portalquestiondisplay.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A10AAF9F-4AF7-ADE4-1ACA-C45DA074F5DE}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\quiz\\portalquestiondisplay.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{A10AAF9F-4AF7-ADE4-1ACA-C45DA074F5DE}|Assembly-CSharp.csproj|C:\\Users\\Bryan\\Documents\\Semestre_6\\IDSE\\Proyecto\\ryc\\RyC\\assets\\scripts\\quiz\\preportaltrigger.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{A10AAF9F-4AF7-ADE4-1ACA-C45DA074F5DE}|Assembly-CSharp.csproj|solutionrelative:assets\\scripts\\quiz\\preportaltrigger.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 4,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "SlowState.cs",
+              "DocumentMoniker": "C:\\Users\\Bryan\\Documents\\Semestre_6\\IDSE\\Proyecto\\ryc\\RyC\\Assets\\Scripts\\Patterns\\State\\SlowState.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Patterns\\State\\SlowState.cs",
+              "ToolTip": "C:\\Users\\Bryan\\Documents\\Semestre_6\\IDSE\\Proyecto\\ryc\\RyC\\Assets\\Scripts\\Patterns\\State\\SlowState.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Patterns\\State\\SlowState.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAAfAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-26T09:39:04.081Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "PortalAnswerDisplay.cs",
+              "DocumentMoniker": "C:\\Users\\Bryan\\Documents\\Semestre_6\\IDSE\\Proyecto\\ryc\\RyC\\Assets\\Scripts\\Quiz\\PortalAnswerDisplay.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Quiz\\PortalAnswerDisplay.cs",
+              "ToolTip": "C:\\Users\\Bryan\\Documents\\Semestre_6\\IDSE\\Proyecto\\ryc\\RyC\\Assets\\Scripts\\Quiz\\PortalAnswerDisplay.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Quiz\\PortalAnswerDisplay.cs",
+              "ViewState": "AgIAAAcAAAAAAAAAAAAiwCcAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-26T09:12:43.749Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "QuestionBank.cs",
+              "DocumentMoniker": "C:\\Users\\Bryan\\Documents\\Semestre_6\\IDSE\\Proyecto\\ryc\\RyC\\Assets\\Scripts\\Quiz\\QuestionBank.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Quiz\\QuestionBank.cs",
+              "ToolTip": "C:\\Users\\Bryan\\Documents\\Semestre_6\\IDSE\\Proyecto\\ryc\\RyC\\Assets\\Scripts\\Quiz\\QuestionBank.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Quiz\\QuestionBank.cs",
+              "ViewState": "AgIAAAMAAAAAAAAAAAAuwFgAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-26T08:38:11.235Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "PortalQuestionDisplay.cs",
+              "DocumentMoniker": "C:\\Users\\Bryan\\Documents\\Semestre_6\\IDSE\\Proyecto\\ryc\\RyC\\Assets\\Scripts\\Quiz\\PortalQuestionDisplay.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Quiz\\PortalQuestionDisplay.cs",
+              "ToolTip": "C:\\Users\\Bryan\\Documents\\Semestre_6\\IDSE\\Proyecto\\ryc\\RyC\\Assets\\Scripts\\Quiz\\PortalQuestionDisplay.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Quiz\\PortalQuestionDisplay.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAACUAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-26T07:59:44.035Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "CarController.cs",
+              "DocumentMoniker": "C:\\Users\\Bryan\\Documents\\Semestre_6\\IDSE\\Proyecto\\ryc\\RyC\\Assets\\Scripts\\Controllers\\CarController.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Controllers\\CarController.cs",
+              "ToolTip": "C:\\Users\\Bryan\\Documents\\Semestre_6\\IDSE\\Proyecto\\ryc\\RyC\\Assets\\Scripts\\Controllers\\CarController.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Controllers\\CarController.cs",
+              "ViewState": "AgIAAPUAAAAAAAAAAAAMwLgAAAAwAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-26T07:47:49.569Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "MetaTrigger.cs",
+              "DocumentMoniker": "C:\\Users\\Bryan\\Documents\\Semestre_6\\IDSE\\Proyecto\\ryc\\RyC\\Assets\\Scripts\\Quiz\\MetaTrigger.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Quiz\\MetaTrigger.cs",
+              "ToolTip": "C:\\Users\\Bryan\\Documents\\Semestre_6\\IDSE\\Proyecto\\ryc\\RyC\\Assets\\Scripts\\Quiz\\MetaTrigger.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Quiz\\MetaTrigger.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-26T07:46:29.47Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "PortalAnswerTrigger.cs",
+              "DocumentMoniker": "C:\\Users\\Bryan\\Documents\\Semestre_6\\IDSE\\Proyecto\\ryc\\RyC\\Assets\\Scripts\\Quiz\\PortalAnswerTrigger.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Quiz\\PortalAnswerTrigger.cs",
+              "ToolTip": "C:\\Users\\Bryan\\Documents\\Semestre_6\\IDSE\\Proyecto\\ryc\\RyC\\Assets\\Scripts\\Quiz\\PortalAnswerTrigger.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Quiz\\PortalAnswerTrigger.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABkAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-26T07:45:37.205Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "PreportalTrigger.cs",
+              "DocumentMoniker": "C:\\Users\\Bryan\\Documents\\Semestre_6\\IDSE\\Proyecto\\ryc\\RyC\\Assets\\Scripts\\Quiz\\PreportalTrigger.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Quiz\\PreportalTrigger.cs",
+              "ToolTip": "C:\\Users\\Bryan\\Documents\\Semestre_6\\IDSE\\Proyecto\\ryc\\RyC\\Assets\\Scripts\\Quiz\\PreportalTrigger.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Quiz\\PreportalTrigger.cs",
+              "ViewState": "AgIAABgAAAAAAAAAAAAqwCUAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-26T07:44:57.245Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "QuizManager.cs",
+              "DocumentMoniker": "C:\\Users\\Bryan\\Documents\\Semestre_6\\IDSE\\Proyecto\\ryc\\RyC\\Assets\\Scripts\\Quiz\\QuizManager.cs",
+              "RelativeDocumentMoniker": "Assets\\Scripts\\Quiz\\QuizManager.cs",
+              "ToolTip": "C:\\Users\\Bryan\\Documents\\Semestre_6\\IDSE\\Proyecto\\ryc\\RyC\\Assets\\Scripts\\Quiz\\QuizManager.cs",
+              "RelativeToolTip": "Assets\\Scripts\\Quiz\\QuizManager.cs",
+              "ViewState": "AgIAAK0AAAAAAAAAAAAiwM0AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-11-26T07:43:21.268Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

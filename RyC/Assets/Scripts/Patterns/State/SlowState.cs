@@ -5,7 +5,7 @@ public class SlowState : IVehicleState
   private CarController carController;
   private float slowTimer;
   private float slowDuration = 2f;
-  private float slowMultiplier = 0.85f;
+  private float slowMultiplier = 0.5f;
 
   public void EnterState(CarController controller)
   {
