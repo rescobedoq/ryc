@@ -63,44 +63,51 @@ public class QuizManager1 : MonoBehaviour
   }
 
   // --- Lógica del Quiz ---
-
   public void LoadRandomQuestion(int portalId)
   {
-    if (questionBank == null) return;
+      if (questionBank == null) return;
 
-    // Inicializar contador si no existe
-    if (!portalRequestCounts.ContainsKey(portalId))
-    {
-      portalRequestCounts[portalId] = 0;
-    }
+      // Inicializar contador si no existe
+      if (!portalRequestCounts.ContainsKey(portalId))
+      {
+          portalRequestCounts[portalId] = 0;
+      }
 
-    // Aumentar contador de visitas
-    portalRequestCounts[portalId]++;
-    int currentCount = portalRequestCounts[portalId];
+      // Aumentar contador de visitas
+      portalRequestCounts[portalId]++;
+      int currentCount = portalRequestCounts[portalId];
 
-    // Lógica de Vueltas:
-    // Si es impar (1, 3, 5...) -> Es el PRIMER auto en pasar en esta vuelta -> GENERAR NUEVA
-    // Si es par (2, 4, 6...)   -> Es el SEGUNDO auto en pasar -> REUTILIZAR LA EXISTENTE
-    Debug.Log($"[QuizManager] Portal {portalId} visitado {currentCount} veces.");
-    bool isLeaderOfLap = (currentCount % 2 != 0);
+      // --- PARA SOLO 1 JUGADOR ---
+      // Contamos cuántos CarControllers hay activos en la escena
+      int playerCount = FindObjectsOfType<CarController>().Length;
 
-    if (!isLeaderOfLap && activeQuestions.ContainsKey(portalId))
-    {
-      // Es el segundo auto, le mostramos la misma pregunta que al líder
-      Question existingQuestion = activeQuestions[portalId];
-      NotifyQuestionLoaded(existingQuestion, portalId);
-      return;
-    }
+      bool shouldGenerateNew = true;
 
-    // Es el líder (o la primera vez), generamos nueva pregunta y la guardamos (sobrescribiendo la anterior)
-    Question newQuestion = questionBank.GetRandomQuestion();
+      if (playerCount > 1)
+      {
+          // Lógica Multijugador: Solo generamos nueva si es impar (el líder de la vuelta)
+          bool isLeaderOfLap = (currentCount % 2 != 0);
+          shouldGenerateNew = isLeaderOfLap;
+      }
+      // Si playerCount == 1, shouldGenerateNew se queda en true siempre.
 
-    if (activeQuestions.ContainsKey(portalId))
-      activeQuestions[portalId] = newQuestion;
-    else
-      activeQuestions.Add(portalId, newQuestion);
+      if (!shouldGenerateNew && activeQuestions.ContainsKey(portalId))
+      {
+          // Es el segundo auto en multijugador, reutilizamos la pregunta
+          Question existingQuestion = activeQuestions[portalId];
+          NotifyQuestionLoaded(existingQuestion, portalId);
+          return;
+      }
 
-    NotifyQuestionLoaded(newQuestion, portalId);
+      // Generamos nueva pregunta (Modo 1 jugador O Líder en multijugador)
+      Question newQuestion = questionBank.GetRandomQuestion();
+
+      if (activeQuestions.ContainsKey(portalId))
+          activeQuestions[portalId] = newQuestion;
+      else
+          activeQuestions.Add(portalId, newQuestion);
+
+      NotifyQuestionLoaded(newQuestion, portalId);
   }
 
   public void ResetActiveQuestions()
