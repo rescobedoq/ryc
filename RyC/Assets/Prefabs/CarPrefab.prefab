@@ -276,8 +276,8 @@ Transform:
   m_GameObject: {fileID: 5168316788280008196}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0.7132578, z: 0, w: 0.70090187}
-  m_LocalPosition: {x: 0.04381217, y: 0.6077771, z: -2.452354}
-  m_LocalScale: {x: 4.767526, y: 0.95465, z: 2.2795131}
+  m_LocalPosition: {x: 0.04381217, y: 0.659, z: -2.452354}
+  m_LocalScale: {x: 4.9484167, y: 0.87120974, z: 2.2795131}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1271092802448035350}
@@ -521,9 +521,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   target: {fileID: 4642929487833324184}
-  offset: {x: 0, y: 1.5, z: -3.5}
+  offset: {x: 0, y: 1.5, z: -4.5}
   smoothSpeed: 1.5
   rotationSpeed: 2
+  cam: {fileID: 0}
 --- !u!1001 &5180343229245078899
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -684,7 +685,7 @@ Rigidbody:
   serializedVersion: 4
   m_Mass: 1200
   m_Drag: 0
-  m_AngularDrag: 0.05
+  m_AngularDrag: 2
   m_CenterOfMass: {x: 0, y: 0, z: 0}
   m_InertiaTensor: {x: 1, y: 1, z: 1}
   m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
@@ -727,13 +728,13 @@ MonoBehaviour:
   - {fileID: 4689745301016326169}
   - {fileID: 211071919603752859}
   BaseSpeed: 1
-  BaseAcceleration: 10000
-  SteeringForce: 30
+  BaseAcceleration: 700
+  SteeringForce: 15
   BrakeForce: 500
   MaxSpeed: 100
   downForce: 50
-  normalDrag: 0.0001
-  boostDrag: 0.1
+  normalDrag: 0.02
+  boostDrag: 0.00001
   slowDrag: 0.5
 --- !u!4 &8606923703653144775 stripped
 Transform:

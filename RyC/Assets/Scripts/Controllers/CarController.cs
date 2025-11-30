@@ -16,15 +16,15 @@ public class CarController : MonoBehaviour
     [SerializeField] private Transform[] wheelMeshes;
 
     [Header("Movement Settings")]
-    public float BaseSpeed = 50f;
-    public float BaseAcceleration = 20000f;
-    public float SteeringForce = 30f;
+    public float BaseSpeed = 1f;
+    public float BaseAcceleration = 700f;
+    public float SteeringForce = 15f;
     public float BrakeForce = 500f;
-    public float MaxSpeed = 220f;
+    public float MaxSpeed = 100f;
 
     [Header("Physics Settings")]
-    [SerializeField] private float downForce = 50f;
-    [SerializeField] private float normalDrag = 0.015f;
+    [SerializeField] private float downForce = 70f;
+    [SerializeField] private float normalDrag = 0.02f;
     [SerializeField] private float boostDrag = 0.03f;
     [SerializeField] private float slowDrag = 0.5f;
 
@@ -132,7 +132,7 @@ public class CarController : MonoBehaviour
     public void ApplyNormalPhysics()
     {
         rb.drag = normalDrag;
-        rb.angularDrag = 0.05f;
+        rb.angularDrag = 2.0f;
         ResetWheelFriction();
     }
 
@@ -153,14 +153,37 @@ public class CarController : MonoBehaviour
         if (Mathf.Abs(input) < 0.01f)
         {
             for (int i = 2; i < wheelColliders.Length; i++)
+            {
                 wheelColliders[i].motorTorque = 0;
-
+                wheelColliders[i].brakeTorque = 0; // Aseguramos soltar frenos
+            }
             return;
+        }
+
+        float forwardSpeed = Vector3.Dot(rb.velocity, transform.forward);
+
+        // Si vamos hacia adelante (> 1m/s) y el jugador presiona atrás (input < 0)
+        if (forwardSpeed > 1f && input < -0.1f)
+        {
+            // El valor '1.5f' controla la fuerza del frenado. Súbelo a 2f o 3f si quieres que frene más rápido.
+            rb.velocity = Vector3.Lerp(rb.velocity, Vector3.zero, Time.fixedDeltaTime * 1.5f);
+
+            // Aplicar frenos físicos a las ruedas en lugar de motor inverso
+            foreach (var wheel in wheelColliders)
+            {
+                wheel.brakeTorque = BrakeForce * 1.2f;
+                wheel.motorTorque = 0;
+            }
+            return; // Salimos aquí para no aplicar motorTorque hasta que el auto se detenga casi por completo
+        }
+        else
+        {
+            // Si no estamos frenando, aseguramos que los frenos estén libres
+            foreach (var wheel in wheelColliders) wheel.brakeTorque = 0;
         }
 
         float force = input * BaseAcceleration;
 
-        float forwardSpeed = Vector3.Dot(rb.velocity, transform.forward);
         if (forwardSpeed < MaxSpeed)
         {
             for (int i = 2; i < wheelColliders.Length; i++)
@@ -172,13 +195,28 @@ public class CarController : MonoBehaviour
     {
         float steering = input * SteeringForce;
 
-        // Asume que las ruedas delanteras son los índices 0 y 1
+        // Aplicar ángulo físico a las ruedas
         for (int i = 0; i < wheelColliders.Length; i++)
         {
             if (i == 0 || i == 1)
                 wheelColliders[i].steerAngle = steering;
             else
                 wheelColliders[i].steerAngle = 0;
+        }
+
+        // Si el auto se mueve y estamos girando
+        if (Mathf.Abs(input) > 0.1f && CurrentSpeed > 5f)
+        {
+            // Calculamos la dirección hacia donde mira el auto con la velocidad actual
+            Vector3 forwardVelocity = transform.forward * CurrentSpeed;
+            
+            // Interpolamos suavemente la velocidad actual hacia la dirección frontal
+            // El valor '10f' define qué tanto agarre tiene (más alto = menos derrape)
+            rb.velocity = Vector3.Lerp(rb.velocity, forwardVelocity, Time.fixedDeltaTime * 10f);
+
+            // Ayuda de giro (Torque) para que responda mejor
+            float turnAssist = input * 3950f; 
+            rb.AddTorque(Vector3.up * turnAssist, ForceMode.Force);
         }
     }
 
@@ -192,11 +230,26 @@ public class CarController : MonoBehaviour
 
     public void ApplyVehicleStabilization()
     {
+        // Downforce (mantiene el auto pegado al piso)
         rb.AddForce(-transform.up * downForce * CurrentSpeed);
 
+        // Calcular la rotación "ideal" (totalmente plana)
         Vector3 flatForward = Vector3.ProjectOnPlane(transform.forward, Vector3.up).normalized;
+        
+        // Evitamos errores si el auto está perfectamente vertical (raro, pero posible)
+        if (flatForward.sqrMagnitude < 0.001f) return;
+
         Quaternion targetRotation = Quaternion.LookRotation(flatForward, Vector3.up);
-        rb.MoveRotation(Quaternion.Slerp(rb.rotation, targetRotation, Time.fixedDeltaTime * 2f));
+
+        // Calcular cuánto se está inclinando el auto (Ángulo entre el techo del auto y el cielo)
+        float tiltAngle = Vector3.Angle(transform.up, Vector3.up);
+
+        // Si se inclina menos de 20 grados: Corrección suave (2f) -> Permite que se vea la suspensión trabajando.
+        // Si se inclina más de 20 grados: Corrección fuerte (15f) -> Actúa como un tope para no chocar el suelo.
+        float stabilizationSpeed = (tiltAngle > 20f) ? 15f : 2f;
+
+        // Aplicamos la rotación
+        rb.MoveRotation(Quaternion.Slerp(rb.rotation, targetRotation, Time.fixedDeltaTime * stabilizationSpeed));
     }
 
     public void HandleCollision(Collision collision)
