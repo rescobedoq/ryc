@@ -13,13 +13,303 @@ MonoBehaviour:
   m_Name: PreguntasGenerales
   m_EditorClassIdentifier: 
   questions:
-  - questionText: 2 + 3 = ?
+  - questionText: "¿2 + 1 = ?"
     answers:
-    - 4
-    - 5
-    correctAnswerIndex: 1
-  - questionText: 5 - 2 = ?
-    answers:
-    - 3
-    - 4
+    - "3"
+    - "4"
     correctAnswerIndex: 0
+  - questionText: "¿5 - 1 = ?"
+    answers:
+    - "3"
+    - "4"
+    correctAnswerIndex: 1
+  - questionText: "¿1 + 1 = ?"
+    answers:
+    - "2"
+    - "3"
+    correctAnswerIndex: 0
+  - questionText: "¿3 + 2 = ?"
+    answers:
+    - "5"
+    - "6"
+    correctAnswerIndex: 0
+  - questionText: "¿4 - 2 = ?"
+    answers:
+    - "1"
+    - "2"
+    correctAnswerIndex: 1
+  - questionText: "¿6 - 3 = ?"
+    answers:
+    - "3"
+    - "4"
+    correctAnswerIndex: 0
+  - questionText: "¿2 + 4 = ?"
+    answers:
+    - "6"
+    - "5"
+    correctAnswerIndex: 0
+  - questionText: "¿7 - 5 = ?"
+    answers:
+    - "1"
+    - "2"
+    correctAnswerIndex: 1
+  - questionText: "¿3 + 3 = ?"
+    answers:
+    - "6"
+    - "5"
+    correctAnswerIndex: 0
+  - questionText: "¿8 - 1 = ?"
+    answers:
+    - "7"
+    - "6"
+    correctAnswerIndex: 0
+  - questionText: "¿4 + 1 = ?"
+    answers:
+    - "5"
+    - "6"
+    correctAnswerIndex: 0
+  - questionText: "¿9 - 4 = ?"
+    answers:
+    - "5"
+    - "3"
+    correctAnswerIndex: 0
+  - questionText: "¿5 + 2 = ?"
+    answers:
+    - "6"
+    - "7"
+    correctAnswerIndex: 1
+  - questionText: "¿10 - 2 = ?"
+    answers:
+    - "8"
+    - "9"
+    correctAnswerIndex: 0
+  - questionText: "¿6 + 1 = ?"
+    answers:
+    - "8"
+    - "7"
+    correctAnswerIndex: 1
+  - questionText: "¿3 es mayor que 2?"
+    answers:
+    - "Sí"
+    - "No"
+    correctAnswerIndex: 0
+  - questionText: "¿1 es mayor que 4?"
+    answers:
+    - "Sí"
+    - "No"
+    correctAnswerIndex: 1
+  - questionText: "¿0 + 5 = 5?"
+    answers:
+    - "Sí"
+    - "No"
+    correctAnswerIndex: 0
+  - questionText: "¿2 + 2 = 5?"
+    answers:
+    - "Sí"
+    - "No"
+    correctAnswerIndex: 1
+  - questionText: "¿7 es número par?"
+    answers:
+    - "Sí"
+    - "No"
+    correctAnswerIndex: 1
+  - questionText: "Color del cielo despejado"
+    answers:
+    - "Azul"
+    - "Rojo"
+    correctAnswerIndex: 0
+  - questionText: "Color de una banana madura"
+    answers:
+    - "Amarillo"
+    - "Verde"
+    correctAnswerIndex: 0
+  - questionText: "Color típico de la sangre"
+    answers:
+    - "Azul"
+    - "Rojo"
+    correctAnswerIndex: 1
+  - questionText: "Animal que ladra"
+    answers:
+    - "Perro"
+    - "Gato"
+    correctAnswerIndex: 0
+  - questionText: "Animal que maúlla"
+    answers:
+    - "Perro"
+    - "Gato"
+    correctAnswerIndex: 1
+  - questionText: "Animal que vuela"
+    answers:
+    - "Pájaro"
+    - "Pez"
+    correctAnswerIndex: 0
+  - questionText: "Animal que vive en el agua"
+    answers:
+    - "Pez"
+    - "Gallo"
+    correctAnswerIndex: 0
+  - questionText: "Parte del cuerpo para ver"
+    answers:
+    - "Ojos"
+    - "Orejas"
+    correctAnswerIndex: 0
+  - questionText: "Parte del cuerpo para oír"
+    answers:
+    - "Nariz"
+    - "Orejas"
+    correctAnswerIndex: 1
+  - questionText: "Parte del cuerpo para correr"
+    answers:
+    - "Piernas"
+    - "Manos"
+    correctAnswerIndex: 0
+  - questionText: "Objeto para escribir en papel"
+    answers:
+    - "Lápiz"
+    - "Cuchara"
+    correctAnswerIndex: 0
+  - questionText: "Objeto para comer sopa"
+    answers:
+    - "Tenedor"
+    - "Cuchara"
+    correctAnswerIndex: 1
+  - questionText: "Objeto para ver la hora"
+    answers:
+    - "Reloj"
+    - "Zapato"
+    correctAnswerIndex: 0
+  - questionText: "Usas en los pies"
+    answers:
+    - "Sombrero"
+    - "Zapatos"
+    correctAnswerIndex: 1
+  - questionText: "Usas en la cabeza"
+    answers:
+    - "Sombrero"
+    - "Guante"
+    correctAnswerIndex: 0
+  - questionText: "Sirve para cortar papel"
+    answers:
+    - "Tijeras"
+    - "Borrador"
+    correctAnswerIndex: 0
+  - questionText: "Sirve para borrar lápiz"
+    answers:
+    - "Regla"
+    - "Borrador"
+    correctAnswerIndex: 1
+  - questionText: "Objeto para guardar libros"
+    answers:
+    - "Mochila"
+    - "Plato"
+    correctAnswerIndex: 0
+  - questionText: "Objeto para dormir"
+    answers:
+    - "Cama"
+    - "Silla"
+    correctAnswerIndex: 0
+  - questionText: "Objeto para sentarse"
+    answers:
+    - "Mesa"
+    - "Silla"
+    correctAnswerIndex: 1
+  - questionText: "¿El sol sale de día?"
+    answers:
+    - "Sí"
+    - "No"
+    correctAnswerIndex: 0
+  - questionText: "¿Las estrellas se ven de día?"
+    answers:
+    - "Sí"
+    - "No"
+    correctAnswerIndex: 1
+  - questionText: "¿Lunes es un día?"
+    answers:
+    - "Sí"
+    - "No"
+    correctAnswerIndex: 0
+  - questionText: "¿Febrero es un mes?"
+    answers:
+    - "Sí"
+    - "No"
+    correctAnswerIndex: 0
+  - questionText: "Estación con más calor"
+    answers:
+    - "Verano"
+    - "Invierno"
+    correctAnswerIndex: 0
+  - questionText: "Estación con más frío"
+    answers:
+    - "Verano"
+    - "Invierno"
+    correctAnswerIndex: 1
+  - questionText: "Forma con 3 lados"
+    answers:
+    - "Triángulo"
+    - "Cuadrado"
+    correctAnswerIndex: 0
+  - questionText: "Forma con 4 lados iguales"
+    answers:
+    - "Triángulo"
+    - "Cuadrado"
+    correctAnswerIndex: 1
+  - questionText: "Forma de una pelota"
+    answers:
+    - "Círculo"
+    - "Triángulo"
+    correctAnswerIndex: 0
+  - questionText: "¿El agua es líquida?"
+    answers:
+    - "Sí"
+    - "No"
+    correctAnswerIndex: 0
+  - questionText: "¿El fuego quema?"
+    answers:
+    - "Sí"
+    - "No"
+    correctAnswerIndex: 0
+  - questionText: "¿Podemos respirar bajo el agua?"
+    answers:
+    - "Sí"
+    - "No"
+    correctAnswerIndex: 1
+  - questionText: "¿El hielo es frío?"
+    answers:
+    - "Sí"
+    - "No"
+    correctAnswerIndex: 0
+  - questionText: "Fruta de color rojo"
+    answers:
+    - "Manzana"
+    - "Pan"
+    correctAnswerIndex: 0
+  - questionText: "Bebida más común"
+    answers:
+    - "Agua"
+    - "Arena"
+    correctAnswerIndex: 0
+  - questionText: "Lugar para estudiar"
+    answers:
+    - "Escuela"
+    - "Cocina"
+    correctAnswerIndex: 0
+  - questionText: "Vehículo con dos ruedas"
+    answers:
+    - "Bicicleta"
+    - "Auto"
+    correctAnswerIndex: 0
+  - questionText: "Vehículo con cuatro ruedas"
+    answers:
+    - "Bicicleta"
+    - "Auto"
+    correctAnswerIndex: 1
+  - questionText: "¿Un libro tiene páginas?"
+    answers:
+    - "Sí"
+    - "No"
+    correctAnswerIndex: 0
+  - questionText: "¿Un pez vive en el aire?"
+    answers:
+    - "Sí"
+    - "No"
+    correctAnswerIndex: 1

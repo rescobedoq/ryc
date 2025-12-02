@@ -30,7 +30,7 @@ public class PortalQuestionDisplay1 : MonoBehaviour, IQuizObserver
     }
   }
 
-  // --- IQuizObserver Implementation ---
+  // IQuizObserver Implementation
 
   public void OnQuestionLoaded(string questionText, string[] answers, int portalId)
   {

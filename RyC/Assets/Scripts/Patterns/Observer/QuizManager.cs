@@ -27,7 +27,7 @@ public class QuizManager1 : MonoBehaviour
     else Destroy(gameObject);
   }
 
-  // --- Gestión de Observadores (Patrón Observer) ---
+  // Gestión de Observadores (Patrón Observer)
   public void AddObserver(IQuizObserver observer)
   {
     if (!observers.Contains(observer))
@@ -62,7 +62,7 @@ public class QuizManager1 : MonoBehaviour
       observer.OnQuizFinished();
   }
 
-  // --- Lógica del Quiz ---
+  // Lógica del Quiz
   public void LoadRandomQuestion(int portalId)
   {
       if (questionBank == null) return;
@@ -77,7 +77,7 @@ public class QuizManager1 : MonoBehaviour
       portalRequestCounts[portalId]++;
       int currentCount = portalRequestCounts[portalId];
 
-      // --- PARA SOLO 1 JUGADOR ---
+      // PARA SOLO 1 JUGADOR
       // Contamos cuántos CarControllers hay activos en la escena
       int playerCount = FindObjectsOfType<CarController>().Length;
 
