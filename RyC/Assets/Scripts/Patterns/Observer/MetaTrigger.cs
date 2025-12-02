@@ -6,21 +6,13 @@ public class MetaTrigger1 : MonoBehaviour
 
   private void OnTriggerEnter(Collider other)
   {
-    if (raceFinished) return;
+    var car = other.GetComponentInParent<CarController>();
+    if (car == null) return;
 
-    CarController car = other.GetComponent<CarController>();
+    // PlayerIndex del coche
+    PlayerIndex p = car.GetPlayerIndex();
 
-    if (car != null)
-    {
-      raceFinished = true;
-
-      if (QuizManager1.Instance != null)
-      {
-        // ELIMINADO: QuizManager1.Instance.ResetActiveQuestions(); 
-        // No reseteamos nada todavía para no romperle el juego al que viene atrás.
-
-        QuizManager1.Instance.FinishRace(car.playerIndex);
-      }
-    }
+    // Notificar paso por META + referencia al coche para escribir en HUD
+    QuizManager1.Instance.NotifyMetaPassed(p, car);
   }
 }

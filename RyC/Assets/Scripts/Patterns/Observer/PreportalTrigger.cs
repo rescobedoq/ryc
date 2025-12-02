@@ -7,20 +7,13 @@ public class PreportalTrigger1 : MonoBehaviour
 
   private void OnTriggerEnter(Collider other)
   {
-    Debug.Log($"[PreportalTrigger1] Algo entró en el trigger: {other.name} (Tag: {other.tag})");
+    var car = other.GetComponentInParent<CarController>();
+    if (car == null) return;
 
-    if (other.CompareTag("Player"))
-    {
-      Debug.Log("[PreportalTrigger1] ¡Es el Player! Llamando a QuizManager1...");
+    // 1) MARCAR que este jugador pasó por preportal
+    QuizManager1.Instance.NotifyPreportalPassed(car.GetPlayerIndex());
 
-      if (QuizManager1.Instance != null)
-      {
-        QuizManager1.Instance.LoadRandomQuestion(portalId);
-      }
-      else
-      {
-        Debug.LogError("[PreportalTrigger1] ERROR: QuizManager1.Instance es NULL. ¿Está el QuizManager en la escena?");
-      }
-    }
+    // 2) Cargar la pregunta (lo que ya hacías)
+    QuizManager1.Instance.LoadRandomQuestion(portalId);
   }
 }
