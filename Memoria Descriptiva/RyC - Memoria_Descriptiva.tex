@@ -1,0 +1,263 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage[spanish]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{geometry}
+\geometry{margin=2.2cm}
+\usepackage{parskip}
+\usepackage{graphicx}
+\usepackage{hyperref}
+
+\begin{document}
+
+\begin{titlepage}
+    \centering
+    {\large Universidad Nacional de San Agustín de Arequipa\\[0.2cm]
+    Facultad de Ingeniería de Producción y Servicios\\[0.2cm]
+    Escuela Profesional de Ingeniería de Sistemas\\[0.4cm]}
+    {\large Curso: Tecnología de Objetos\\[0.2cm]}
+    {\large Docente: Ing. Richart Smith Escobedo Quispe\\[1cm]}
+
+    {\LARGE \textbf{Memoria Descriptiva}\\[0.5cm]}
+    {\Large Videojuego Educativo de Carreras en Unity\\[0.2cm]
+    \Large \textit{“Rápidos y Curiosos”}\\[1.2cm]}
+
+    \begin{flushleft}
+    \textbf{Integrantes del equipo:}
+    \begin{itemize}
+        \item Choquehuanca Zapana Hernan Andy (Rama: hz07s/workspace)
+        \item Larico Rodriguez Bryan Fernando (Rama: BryanLarico/workspace)
+        \item Portugal Portugal Eduardo Sebastian (Rama: Eduardo-P/workspace)
+        \item Mamani Anahua Victor Narciso (Rama: victorma18/workspace)
+    \end{itemize}
+    \end{flushleft}
+
+    \vfill
+    {\large Arequipa, 7 de diciembre de 2024}
+\end{titlepage}
+
+\tableofcontents
+\newpage
+
+\section{Introducción}
+
+La presente memoria descriptiva documenta el diseño, desarrollo e implementación del videojuego educativo de carreras \textit{“Rápidos y Curiosos”}, creado en el motor Unity como proyecto del curso Tecnología de Objetos. El sistema combina mecánicas de conducción en tiempo real con un componente de preguntas y respuestas que introduce contenidos educativos durante la experiencia de juego.
+
+El jugador recorre un circuito y, en puntos clave de la pista, se activan preguntas con varias alternativas representadas por portales interactivos. Al atravesar el portal que corresponde a la respuesta correcta, el vehículo recibe un impulso temporal de velocidad; en caso de error, se aplica una penalización que reduce el desempeño por algunos segundos, reforzando así la retroalimentación inmediata y la atención sostenida del usuario.
+
+\subsection{Contexto y motivación}
+
+Los videojuegos educativos o \textit{serious games} se han consolidado como herramientas de apoyo al proceso de enseñanza–aprendizaje, al integrar dinámicas lúdicas con objetivos formativos concretos. En este contexto, \textit{“Rápidos y Curiosos”} busca aprovechar la familiaridad de los estudiantes con los juegos de carreras para reforzar contenidos académicos mediante la toma de decisiones rápidas.
+
+El proyecto se plantea además como un ejercicio integral de aplicación de programación orientada a objetos, uso de patrones de diseño y trabajo colaborativo con control de versiones, alineado con los lineamientos del curso y la rúbrica de evaluación.
+
+\subsection{Problema y oportunidad}
+
+En entornos educativos tradicionales resulta difícil mantener la atención constante del estudiante durante actividades teóricas o evaluaciones repetitivas. Asimismo, muchos recursos digitales de evaluación carecen de elementos de motivación extrínseca más allá de la calificación numérica.
+
+El videojuego propone una alternativa en la que el rendimiento académico (responder correctamente) se vincula de forma directa con una ventaja observable en el juego (mayor velocidad y mejor tiempo de carrera), generando una relación inmediata entre aprendizaje y desempeño lúdico.
+
+\subsection{Objetivos}
+
+\subsubsection{Objetivo general}
+
+Desarrollar un videojuego educativo de carreras en Unity que integre un sistema de preguntas y respuestas a través de portales interactivos, promoviendo el aprendizaje mediante la toma de decisiones rápidas y la retroalimentación inmediata.
+
+\subsubsection{Objetivos específicos}
+
+\begin{itemize}
+    \item Implementar una mecánica básica de conducción (aceleración, frenado y giro) adecuada para un circuito de carreras educativo.
+    \item Diseñar e integrar un sistema de preguntas con múltiples opciones representadas por portales en la pista.
+    \item Asociar respuestas correctas e incorrectas con efectos de impulso y penalización de velocidad sobre el vehículo.
+    \item Incorporar al menos tres patrones de diseño en la arquitectura del software (por ejemplo: Singleton, State y Observer).
+    \item Proporcionar un modo de juego para uno o varios jugadores locales, con selección de vehículos y visualización de estadísticas.
+\end{itemize}
+
+\subsection{Alcance y limitaciones}
+
+El alcance de la versión actual incluye:
+
+\begin{itemize}
+    \item Una pista jugable con zonas de activación de preguntas.
+    \item Sistema de preguntas de opción múltiple integrado con portales en el circuito.
+    \item Modos de juego para un jugador y multijugador local en un mismo equipo.
+    \item Selección de vehículos con diferentes atributos de manejo.
+    \item Interfaz gráfica de usuario orientada a escritorio (Windows).
+\end{itemize}
+
+Entre las principales limitaciones se encuentran:
+
+\begin{itemize}
+    \item El sistema de audio (música y efectos de sonido) no se completó según el cronograma inicial y se considera trabajo futuro.
+    \item La gestión de bancos de preguntas se realiza dentro del proyecto (código o recursos de Unity) y aún no se expone un panel avanzado para docentes.
+    \item El juego está pensado para PC con teclado o mando; no se contempla por ahora una versión móvil.
+\end{itemize}
+
+\section{Marco teórico y tecnológico}
+
+\subsection{Videojuegos educativos y toma de decisiones}
+
+El videojuego se enmarca dentro de los \textit{juegos serios}, donde la dimensión lúdica se utiliza como medio para lograr objetivos educativos. En este caso, la mecánica de elegir portales bajo presión de tiempo refuerza habilidades de concentración, memoria y toma de decisiones, además de los contenidos específicos que se evalúan.
+
+\subsection{Motor Unity y programación orientada a objetos}
+
+Unity se utilizó como plataforma principal de desarrollo, empleando C\# como lenguaje de programación orientado a objetos. Esta elección permite estructurar el código en clases y componentes reutilizables (controladores de vehículo, gestores de preguntas, controladores de escena, etc.), facilitando la extensión del proyecto en iteraciones futuras.
+
+\subsection{Patrones de diseño}
+
+Con el fin de mejorar la mantenibilidad y escalabilidad del sistema, se aplicaron diversos patrones de diseño en los componentes principales:
+
+\begin{itemize}
+    \item \textbf{Singleton}: para gestores globales como el administrador de juego y el gestor de preguntas, garantizando una única instancia accesible desde distintas escenas.
+    \item \textbf{State}: para modelar los estados del vehículo (normal, impulsado, penalizado), separando la lógica de comportamiento según el estado actual.
+    \item \textbf{Observer}: para notificar a la interfaz de usuario y a los portales cuando se genera una nueva pregunta o se registra una respuesta.
+\end{itemize}
+
+\section{Análisis y diseño del sistema}
+
+\subsection{Requisitos funcionales}
+
+A nivel general, el sistema cumple con los siguientes requisitos funcionales principales:
+
+\begin{itemize}
+    \item RF01: Permitir la conducción de un vehículo a través de un circuito de carreras.
+    \item RF02: Mostrar preguntas educativas durante la carrera con varias opciones de respuesta.
+    \item RF03: Asociar cada opción con un portal interactivo en la pista.
+    \item RF04: Aplicar impulso de velocidad al vehículo cuando la respuesta es correcta.
+    \item RF05: Aplicar penalización de velocidad cuando la respuesta es incorrecta.
+    \item RF06: Ofrecer un menú principal con selección de modo de juego y de vehículo.
+    \item RF07: Mostrar información relevante en pantalla (velocidad, vuelta, mensajes de acierto/error).
+\end{itemize}
+
+\subsection{Requisitos no funcionales}
+
+Entre los requisitos no funcionales más relevantes se incluyen:
+
+\begin{itemize}
+    \item RNF01: Interfaz intuitiva que permita aprender a jugar en pocos minutos.
+    \item RNF02: Rendimiento adecuado para mantener una tasa de fotogramas estable en equipos de gama media.
+    \item RNF03: Código organizado en clases y scripts coherentes, aplicando patrones de diseño y buenas prácticas.
+    \item RNF04: Uso de herramientas de software libre y licencias adecuadas para los recursos empleados.
+\end{itemize}
+
+\subsection{Arquitectura general}
+
+La arquitectura se organiza alrededor de escenas y prefabs de Unity, complementados con scripts C\# que encapsulan la lógica de juego. A nivel alto, se distinguen los siguientes componentes:
+
+\begin{itemize}
+    \item \textbf{Gestor de Juego (GameManager)}: coordina el flujo general (carga de escenas, inicio y fin de carrera).
+    \item \textbf{Controlador de Vehículo}: maneja la entrada del usuario y traduce las acciones en movimiento del auto.
+    \item \textbf{Gestor de Preguntas}: administra el banco de preguntas, selecciona ítems y evalúa respuestas.
+    \item \textbf{Portales de Respuesta}: representan visualmente cada opción y aplican los efectos correspondientes.
+    \item \textbf{UI Manager}: muestra textos, preguntas, opciones y mensajes de retroalimentación.
+\end{itemize}
+
+\subsection{Escenas y estructura básica}
+
+El proyecto se compone de varias escenas principales:
+
+\begin{itemize}
+    \item \textbf{Pantalla de inicio}: portada del juego y acceso al menú principal.
+    \item \textbf{Menú principal}: selección de modo de juego, vehículos y opciones.
+    \item \textbf{Escena de carrera}: circuito de juego con vehículos, portales y HUD.
+    \item \textbf{Pantalla de resultados}: resumen de tiempo, aciertos y desempeño.
+\end{itemize}
+
+% Ejemplo de lugar donde luego se puede insertar un diagrama
+% \begin{figure}[h]
+%     \centering
+%     \includegraphics[width=0.8\textwidth]{diagrama_arquitectura.png}
+%     \caption{Diagrama general de la arquitectura del videojuego.}
+% \end{figure}
+
+\section{Implementación y funcionalidades}
+
+\subsection{Mecánica de conducción}
+
+La conducción se basa en la lectura de entradas de teclado o mando (acelerar, frenar, girar) aplicadas sobre un controlador de física del vehículo. Se ajustan parámetros como aceleración máxima, fuerza de frenado y sensibilidad de giro para ofrecer una experiencia de manejo estable y apta para usuarios novatos.
+
+\subsection{Sistema de preguntas y portales}
+
+El sistema de preguntas utiliza una colección de ítems donde cada elemento incluye enunciado, alternativas y respuesta correcta. Al activarse una zona de pregunta, se muestra el enunciado en la interfaz y se habilitan portales asociados a cada alternativa; el vehículo atraviesa uno de ellos y la respuesta se evalúa de forma inmediata, modificando el estado del vehículo a “impulsado” o “penalizado”.
+
+\subsection{Selección de vehículos y estadísticas}
+
+La pantalla de selección de vehículos permite al jugador comparar varios autos con atributos como velocidad máxima, aceleración, capacidad de giro y frenado. Estos atributos se reflejan directamente en el comportamiento del controlador del vehículo dentro de la pista, permitiendo que el usuario elija el estilo de manejo que mejor se adapta a su estrategia.
+
+\subsection{Manejo de errores y buenas prácticas}
+
+En el desarrollo se consideró el manejo básico de errores y validaciones, por ejemplo:
+
+\begin{itemize}
+    \item Verificar que exista una pregunta válida antes de mostrarla.
+    \item Evitar estados inconsistentes del vehículo (como aplicar impulso y penalización simultáneos).
+    \item Registrar mensajes en la consola de Unity cuando se detectan configuraciones incompletas en la escena.
+\end{itemize}
+
+\section{Proceso de instalación y ejecución}
+
+\subsection{Instalación para desarrolladores}
+
+Para trabajar con el proyecto desde Unity:
+
+\begin{enumerate}
+    \item Clonar el repositorio desde GitHub:
+    \begin{itemize}
+        \item \texttt{https://github.com/rescobedoq/ryc}
+    \end{itemize}
+    \item Abrir la carpeta del proyecto en la versión recomendada de Unity (por ejemplo, una versión LTS 2022 compatible).
+    \item Permitir que Unity importe escenas, scripts y \textit{assets} necesarios.
+    \item Verificar que la escena principal de la carrera esté configurada en \textit{Build Settings} como escena de inicio.
+    \item Ejecutar el juego en modo \textit{Play} para comprobar conducción, sistema de preguntas y HUD.
+\end{enumerate}
+
+\subsection{Instalación para usuarios finales}
+
+Para ejecutar únicamente el videojuego:
+
+\begin{enumerate}
+    \item Descargar la versión compilada del juego (ejecutable y carpeta de datos) proporcionada por el equipo desarrollador.
+    \item Descomprimir el paquete en una carpeta local con permisos de lectura y escritura.
+    \item Ejecutar el archivo principal (por ejemplo, \texttt{RyC.exe}) desde el sistema operativo Windows.
+\end{enumerate}
+
+\section{Pruebas y validación}
+
+\subsection{Estrategia de pruebas}
+
+Se realizaron principalmente pruebas manuales de:
+
+\begin{itemize}
+    \item \textbf{Jugabilidad}: respuesta del vehículo a las entradas del usuario, dificultad del circuito y sensación de control.
+    \item \textbf{Sistema de preguntas}: correcta aparición de preguntas, asociación con portales y aplicación de impulsos o penalizaciones.
+    \item \textbf{Interfaz}: visibilidad de textos, mensajes de feedback y consistencia entre escenas.
+\end{itemize}
+
+\subsection{Funcionalidades verificadas}
+
+Durante las pruebas se verificó que:
+
+\begin{itemize}
+    \item El jugador puede iniciar una partida desde el menú principal, seleccionando vehículo y modo de juego.
+    \item Las preguntas se muestran en los puntos previstos de la pista y los portales responden correctamente a la elección del jugador.
+    \item El HUD refleja información relevante (velocidad, mensajes de acierto/error, etc.).
+\end{itemize}
+
+\subsection{Trabajo futuro}
+
+Entre las mejoras propuestas para versiones posteriores se encuentran:
+
+\begin{itemize}
+    \item Integrar música de fondo y efectos de sonido coherentes con la temática del juego.
+    \item Ampliar el número de circuitos y bancos de preguntas.
+    \item Incorporar un panel de administración para que los docentes gestionen preguntas desde una interfaz gráfica.
+    \item Añadir tablas de puntuaciones y métricas de aprendizaje para seguimiento del progreso de los estudiantes.
+\end{itemize}
+
+\section{Conclusiones}
+
+El videojuego educativo de carreras \textit{“Rápidos y Curiosos”} demuestra que es posible integrar mecánicas de conducción arcade con un sistema de evaluación formativa basado en preguntas y respuestas de manera coherente y motivadora. La relación directa entre el acierto en las respuestas y la ventaja en la carrera genera un vínculo claro entre aprendizaje y rendimiento dentro del juego.
+
+Desde el punto de vista técnico, el uso de Unity, C\# y patrones de diseño como Singleton, State y Observer permitió construir una arquitectura modular y extensible, adecuada para incorporar nuevas funcionalidades en futuras iteraciones del proyecto. El trabajo colaborativo mediante GitHub y la documentación asociada (manual de usuario y memoria descriptiva) completan el ciclo de desarrollo esperado en el curso.
+
+\end{document}
