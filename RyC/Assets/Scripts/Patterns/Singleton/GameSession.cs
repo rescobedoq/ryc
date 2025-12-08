@@ -2,23 +2,18 @@ using UnityEngine;
 
 namespace Patterns.Singleton
 {
-    /// <summary>
-    /// Singleton para mantener estadísticas y configuración de sesión de juego.
-    /// Persiste entre escenas usando DontDestroyOnLoad.
-    /// </summary>
+    // Usa el enum GameMode que ya tienes en MenuManager.cs
     public class GameSession : MonoBehaviour
     {
         public static GameSession Instance { get; private set; }
 
-        // Estadísticas de la sesión (no afectan gameplay)
-        public int TotalQuestionsAnswered { get; private set; }
-        public int TotalCorrectAnswers { get; private set; }
-        public int TotalIncorrectAnswers { get; private set; }
-        public float SessionStartTime { get; private set; }
+        public GameMode CurrentMode = GameMode.SinglePlayer;
+        public string Car1Name = "Default";
+        public string Car2Name = "Default";
 
         private void Awake()
         {
-            // Patrón Singleton: solo una instancia persiste
+            // Patrón Singleton básico
             if (Instance != null && Instance != this)
             {
                 Destroy(gameObject);
@@ -27,30 +22,13 @@ namespace Patterns.Singleton
 
             Instance = this;
             DontDestroyOnLoad(gameObject);
-            SessionStartTime = Time.time;
         }
 
-        // Métodos para registrar estadísticas (uso opcional)
-        public void RecordAnswer(bool isCorrect)
+        public void SetSelection(GameMode mode, string car1Name, string car2Name)
         {
-            TotalQuestionsAnswered++;
-            if (isCorrect)
-                TotalCorrectAnswers++;
-            else
-                TotalIncorrectAnswers++;
-        }
-
-        public float GetSessionDuration()
-        {
-            return Time.time - SessionStartTime;
-        }
-
-        public void ResetStats()
-        {
-            TotalQuestionsAnswered = 0;
-            TotalCorrectAnswers = 0;
-            TotalIncorrectAnswers = 0;
-            SessionStartTime = Time.time;
+            CurrentMode = mode;
+            Car1Name = car1Name;
+            Car2Name = car2Name;
         }
     }
 }
