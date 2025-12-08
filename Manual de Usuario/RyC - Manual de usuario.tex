@@ -1,0 +1,387 @@
+\documentclass[12pt,a4paper]{article}
+\usepackage[spanish]{babel}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{geometry}
+\geometry{margin=2.2cm}
+\usepackage{parskip}
+\usepackage{graphicx}
+\usepackage{hyperref}
+\usepackage{float}
+
+\begin{document}
+
+\begin{titlepage}
+    \centering
+    {\large Universidad Nacional de San Agustín de Arequipa\\[0.2cm]
+    Facultad de Ingeniería de Producción y Servicios\\[0.2cm]
+    Escuela Profesional de Ingeniería de Sistemas\\[0.4cm]}
+    {\large Curso: Tecnología de Objetos\\[0.2cm]}
+    {\large Docente: Ing. Richart Smith Escobedo Quispe\\[1cm]}
+
+    {\LARGE \textbf{Manual de Usuario}\\[0.5cm]}
+    {\Large Videojuego Educativo de Carreras en Unity\\[0.2cm]
+    \Large \textit{“Rápidos y Curiosos”}\\[1.2cm]}
+
+    \vfill
+    {\large Arequipa, 7 de diciembre de 2024}
+\end{titlepage}
+
+\tableofcontents
+\newpage
+
+\section{Acerca del videojuego}
+
+El videojuego educativo de carreras \textit{“Rápidos y Curiosos”} es una aplicación interactiva desarrollada en Unity que combina la conducción de vehículos con un sistema de preguntas y respuestas orientado a reforzar contenidos académicos de forma lúdica. Durante la carrera, el jugador debe atravesar portales que representan posibles respuestas a una pregunta mostrada en pantalla.
+
+El juego está pensado para ser utilizado en contextos educativos formales e informales, permitiendo que docentes y estudiantes integren dinámicas de competición y toma de decisiones rápidas como apoyo al proceso de enseñanza–aprendizaje.
+
+\section{¿Quiénes deben leer este documento?}
+
+Este manual está dirigido principalmente a:
+
+\begin{itemize}
+    \item \textbf{Jugadores}: estudiantes o usuarios finales que utilizarán el videojuego para aprender mientras compiten en las carreras.
+    \item \textbf{Docentes o facilitadores}: profesores, tutores o responsables de cursos que deseen emplear el videojuego como recurso complementario en sus sesiones.
+\end{itemize}
+
+Los desarrolladores del proyecto también pueden utilizar este documento como referencia para comprender la experiencia de uso desde el punto de vista del usuario final.
+
+\section{Requisitos del sistema}
+
+\subsection{Requisitos de hardware}
+
+Para una experiencia de juego fluida se recomienda:
+
+\begin{itemize}
+    \item Procesador equivalente a Intel Core i3 o superior.
+    \item 4 GB de memoria RAM como mínimo (8 GB recomendado).
+    \item Tarjeta gráfica con soporte para aceleración 3D básica.
+    \item Al menos 500 MB de espacio libre en disco.
+    \item Resolución de pantalla mínima de 1280x720 píxeles.
+\end{itemize}
+
+\subsection{Requisitos de software}
+
+\begin{itemize}
+    \item Sistema operativo Windows 10 o superior.
+    \item Controladores de tarjeta gráfica actualizados.
+    \item Permisos de ejecución de aplicaciones en la carpeta donde se instale el juego.
+\end{itemize}
+
+\section{Instalación y ejecución}
+
+\subsection{Instalación en Windows}
+
+\begin{enumerate}
+    \item Descargar el paquete del videojuego \textit{“Rápidos y Curiosos”} (archivo comprimido o instalador) proporcionado por el equipo desarrollador.
+    \item Descomprimir el contenido en una carpeta de su preferencia (por ejemplo, \texttt{C:\textbackslash Juegos\textbackslash RyC}).
+    \item Verificar que la carpeta contenga el archivo ejecutable (por ejemplo, \texttt{RyC.exe}) y la carpeta de datos asociada.
+    \item Hacer doble clic sobre el ejecutable para iniciar el juego.
+\end{enumerate}
+
+\subsection{Ejecución desde el entorno de desarrollo}
+
+Si se cuenta con Unity y el código fuente del proyecto:
+
+\begin{enumerate}
+    \item Clonar el repositorio del proyecto desde GitHub:
+    \begin{itemize}
+        \item \texttt{https://github.com/rescobedoq/ryc}
+    \end{itemize}
+    \item Abrir el proyecto en Unity (versión LTS recomendada).
+    \item Seleccionar la escena principal del juego y pulsar el botón \textit{Play} en el editor.
+\end{enumerate}
+
+\section{Pantallas y funcionalidades principales}
+
+\subsection{Pantalla de inicio del videojuego}
+
+\begin{figure}[h]
+    \centering
+    \includegraphics[width=0.8\textwidth]{img/pantalla_inicio}
+    \caption{Pantalla de inicio del videojuego.}
+\end{figure}
+
+Al ejecutar el videojuego, se muestra una pantalla inicial con:
+
+\begin{itemize}
+    \item El título del juego y una breve descripción de la experiencia educativa.
+    \item Botones para acceder al \textbf{menú principal}, a las \textbf{opciones} y, opcionalmente, a una sección de \textbf{créditos}.
+\end{itemize}
+
+Desde esta pantalla el usuario puede avanzar al menú principal para configurar su partida y comenzar a jugar.
+
+\subsection{Menú principal}
+
+El menú principal del videojuego contiene los siguientes bloques:
+
+\begin{itemize}
+    \item \textbf{Modo de juego}: selección entre modo un jugador y modo multijugador local.
+    \item \textbf{Selección de vehículo}: acceso a la pantalla donde se elige el auto y se visualizan sus estadísticas.
+    \item \textbf{Iniciar carrera}: botón para comenzar la partida con la configuración actual.
+    \item \textbf{Salir}: para cerrar el juego y volver al sistema operativo.
+\end{itemize}
+
+
+Cada bloque está diseñado para ser fácilmente accesible mediante ratón.
+
+\subsection{Iniciar una partida}
+
+Para iniciar una partida típica, el usuario debe:
+
+\begin{enumerate}
+    \item Seleccionar el \textbf{modo de juego} (un jugador o multijugador local).
+    
+    \item Elegir el \textbf{vehículo} preferido para cada jugador, revisando sus atributos básicos.
+    \item Confirmar la selección y hacer clic en el botón \textbf{Jugar}.
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.7\textwidth]{img/eleccion_modo}
+        \caption{Elección del modo de juego (1 o 2 jugadores.}
+        \label{fig:paso3-fijo}
+    \end{figure}
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.7\textwidth]{img/1jugador_eleccion_carro_seleccionado}
+        \caption{Selección de vehículo para 1 jugador.}
+        \label{fig:paso3-fijo}
+    \end{figure}
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.7\textwidth]{img/2jugadores_eleccion_carro_seleccionados}
+        \caption{Selección de vehículo para 2 jugadores.}
+        \label{fig:paso3-fijo}
+    \end{figure}
+    
+\end{enumerate}
+
+Una vez cargada la escena de la pista, los vehículos aparecen en la línea de salida y comienza la cuenta regresiva para el inicio de la carrera.
+
+
+Los controles pueden variar según la configuración del juego, pero en general incluyen:
+
+\begin{itemize}
+    \item \textbf{Acelerar y frenar}: teclas o botones asignados para controlar la velocidad del vehículo (w).
+    \item \textbf{Giro a la izquierda/derecha}: teclas de dirección para cambiar la trayectoria (a / d).
+    \item \textbf{Freno o derrape}: tecla dedicada para frenar de manera más brusca o controlar curvas cerradas (s).
+\end{itemize}
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.7\textwidth]{img/adelante}
+        \caption{Tecla W para avanzar hacia adelante}
+        \label{fig:paso3-fijo}
+    \end{figure}
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.7\textwidth]{img/derecha}
+        \caption{Tecla D para direccionar a la derecha.}
+        \label{fig:paso3-fijo}
+    \end{figure}
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.7\textwidth]{img/izquierda}
+        \caption{Tecla A para direccionar a la izquierda.}
+        \label{fig:paso3-fijo}
+    \end{figure}
+
+
+\subsection{Indicadores en pantalla (HUD)}
+
+Durante la carrera, la interfaz de juego muestra información relevante:
+
+\begin{itemize}
+    \item \textbf{Velocidad actual} del vehículo.
+    \item \textbf{Vuelta actual} y progreso en la pista (si corresponde).
+    \item \textbf{Pregunta y opciones} cuando se activa un portal educativo.
+    \item \textbf{Mensajes de estado}: notificaciones breves de respuesta correcta/incorrecta, impulso o penalización.
+\end{itemize}
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.7\textwidth]{img/stats}
+        \caption{Estadísticas del vehículo}
+        \label{fig:paso3-fijo}
+    \end{figure}
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.7\textwidth]{img/2jugadores_ganador}
+        \caption{Visualización de información como número de vueltas, ganador, etc.}
+        \label{fig:paso3-fijo}
+    \end{figure}
+
+    \begin{figure}[H]
+        \centering
+        \includegraphics[width=0.7\textwidth]{img/portales.jpg}
+        \caption{Muestra de los portales con preguntas y sus 2 opciones}
+        \label{fig:paso3-fijo}
+    \end{figure}
+
+Estos elementos permiten al jugador entender fácilmente su desempeño y el efecto de sus decisiones.
+
+\subsection{Sistema de preguntas y portales}
+
+En puntos específicos de la pista se encuentran portales asociados a respuestas de una pregunta educativa:
+
+\begin{itemize}
+    \item Cuando el vehículo se aproxima a una zona de pregunta, en pantalla aparece el \textbf{enunciado} y las \textbf{opciones} disponibles.
+    \item Cada portal representa una respuesta posible; el jugador debe decidir rápidamente qué portal atravesar.
+    \item Si la respuesta es correcta, el vehículo entra en un \textbf{estado de impulso} (aumento temporal de velocidad).
+    \item Si la respuesta es incorrecta, el vehículo entra en un \textbf{estado de penalización} (disminución temporal de velocidad).
+\end{itemize}
+
+El sistema de preguntas se ejecuta de manera automática durante la carrera, y el jugador no necesita realizar acciones adicionales aparte de elegir el portal adecuado.
+
+\section{Selección de vehículos y modos de juego}
+
+\subsection{Selección de vehículos}
+
+La pantalla de selección de vehículos permite:
+
+\begin{itemize}
+    \item Ver una \textbf{galería de autos} disponibles.
+    \item Visualizar \textbf{estadísticas} como velocidad, aceleración, giro y frenado mediante barras o indicadores numéricos.
+    \item Elegir un vehículo para cada jugador antes de iniciar la carrera.
+\end{itemize}
+
+Una vez seleccionado el vehículo, los atributos se aplican al controlador del auto dentro de la escena de juego.
+
+\subsection{Modo un jugador}
+
+En el modo un jugador:
+
+\begin{itemize}
+    \item Solo un vehículo es controlado por el usuario.
+    \item El objetivo principal es completar el circuito, responder correctamente la mayor cantidad de preguntas y optimizar el tiempo total.
+    \item La cámara sigue al único vehículo en pantalla.
+\end{itemize}
+
+Este modo es ideal para práctica individual y para que el jugador se familiarice con la mecánica educativa.
+
+\subsection{Modo multijugador local}
+
+En el modo multijugador local:
+
+\begin{itemize}
+    \item Dos vehículos (o más, según la versión) son controlados por distintos jugadores en el mismo dispositivo.
+    \item La pantalla puede dividirse o gestionarse con varias cámaras, según la configuración implementada.
+    \item Los jugadores compiten entre sí, respondiendo preguntas y aprovechando impulsos o evitando penalizaciones.
+\end{itemize}
+
+El objetivo es fomentar la competencia amistosa y comparar el rendimiento tanto en conducción como en aciertos educativos.
+
+\section{Gestión de contenido educativo y progreso}
+
+\subsection{Bancos de preguntas}
+
+El videojuego utiliza bancos de preguntas clasificadas por tema o nivel de dificultad. Cada pregunta incluye:
+
+\begin{itemize}
+    \item Enunciado principal.
+    \item Varias opciones de respuesta.
+    \item Identificación de la opción correcta.
+\end{itemize}
+
+\subsection{Progreso y resultados}
+
+Al finalizar una carrera, el juego puede mostrar un resumen con:
+
+\begin{itemize}
+    \item Tiempo total empleado.
+    \item Número de respuestas correctas e incorrectas.
+    \item Efecto global sobre el rendimiento en la pista.
+\end{itemize}
+
+Esta información permite al jugador y al docente evaluar el desempeño tanto en la parte lúdica como en la parte educativa.
+
+\section{Casos de uso sugeridos}
+
+\subsection{Sesión guiada en aula}
+
+\begin{enumerate}
+    \item El docente proyecta el juego y controla un vehículo o permite que un estudiante lo haga.
+    \item El grupo discute en voz alta cada pregunta antes de elegir el portal.
+    \item Se comentan las respuestas correctas e incorrectas y su impacto en la carrera.
+\end{enumerate}
+
+\subsection{Práctica individual}
+
+\begin{enumerate}
+    \item Cada estudiante juega en un equipo distinto o en distintos turnos.
+    \item El objetivo es mejorar el tiempo total y el porcentaje de aciertos.
+    \item El docente puede plantear metas mínimas de desempeño para reforzar contenidos.
+\end{enumerate}
+
+\section{Recomendaciones técnicas y de hardware}
+
+Para una experiencia óptima se sugiere:
+
+\begin{itemize}
+    \item Cerrar otras aplicaciones pesadas mientras se ejecuta el juego.
+    \item Ajustar la calidad gráfica desde el menú de opciones si el rendimiento es bajo.
+\end{itemize}
+
+\section{Preguntas frecuentes (FAQ)}
+
+\subsection*{¿El juego guarda mis resultados?}
+
+En esta versión, el juego puede mostrar los resultados al final de la partida, pero el almacenamiento persistente de estadísticas depende de la configuración implementada. Consulte con el docente o el equipo desarrollador sobre la versión utilizada.
+
+\subsection*{¿Puedo cambiar el conjunto de preguntas?}
+
+Sí, siempre que el docente o un desarrollador edite el banco de preguntas dentro del proyecto de Unity o en los archivos de configuración definidos para tal fin.
+
+\subsection*{¿Qué ocurre si cierro el juego durante una carrera?}
+
+La partida actual se perderá y deberá iniciarse una nueva carrera al volver a abrir el juego.
+
+\section{Solución de problemas}
+
+\subsection*{El juego no inicia}
+
+\begin{itemize}
+    \item Verifique que el archivo ejecutable no haya sido bloqueado por el antivirus.
+    \item Asegúrese de que su sistema operativo cumple los requisitos mínimos.
+    \item Intente ejecutar el juego como administrador.
+\end{itemize}
+
+\subsection*{El juego va muy lento}
+
+\begin{itemize}
+    \item Reduzca la calidad gráfica desde el menú de opciones, si está disponible.
+    \item Cierre otras aplicaciones que consuman muchos recursos.
+    \item Verifique que los controladores de la tarjeta gráfica estén actualizados.
+\end{itemize}
+
+\subsection*{No aparecen preguntas o portales}
+
+\begin{itemize}
+    \item Asegúrese de haber iniciado el modo de juego correcto.
+    \item Si está utilizando una versión de desarrollo, revise con el equipo que la escena tenga configurados los disparadores de preguntas.
+\end{itemize}
+
+\section{Contacto y soporte}
+
+Para reportar problemas, sugerir mejoras o solicitar soporte técnico se recomienda:
+
+\begin{itemize}
+    \item Revisar la documentación y el archivo \texttt{README.md} del repositorio de GitHub del proyecto.
+    \item Comunicarse con el equipo desarrollador a través de los canales definidos en el curso (correo institucional).
+\end{itemize}
+
+% EJEMPLO DE CÓMO INSERTAR UNA IMAGEN (SUSTITUIR nombre_archivo.png)
+% \begin{figure}[h]
+%     \centering
+%     \includegraphics[width=0.8\textwidth]{nombre_archivo.png}
+%     \caption{Ejemplo de pantalla del menú principal del videojuego.}
+% \end{figure}
+
+\end{document}
