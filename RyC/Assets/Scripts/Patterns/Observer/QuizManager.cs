@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Patterns.Singleton;
 
 public class QuizManager1 : MonoBehaviour
 {
@@ -186,11 +187,17 @@ public class QuizManager1 : MonoBehaviour
     if (q.correctAnswerIndex == answerIndex)
     {
       Debug.Log($"[QuizManager1] ¡Correcto en Portal {portalId}!");
+      // Registrar estadística en Singleton (opcional, no afecta gameplay)
+      if (GameSession.Instance != null)
+        GameSession.Instance.RecordAnswer(true);
       NotifyAnswerCorrect(player, portalId);
     }
     else
     {
       Debug.Log($"[QuizManager1] Incorrecto en Portal {portalId}.");
+      // Registrar estadística en Singleton (opcional, no afecta gameplay)
+      if (GameSession.Instance != null)
+        GameSession.Instance.RecordAnswer(false);
       NotifyAnswerWrong(player, portalId);
     }
 
