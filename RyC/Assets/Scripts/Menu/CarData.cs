@@ -4,6 +4,7 @@ using UnityEngine;
 public class CarData : ScriptableObject
 {
   public string carName = "Default Car";
+  public string prefabName = "CarPrefab";
   public Sprite carImage;  // Imagen del carro para el botón
 
   [Header("Attributes (0-100 for bars)")]

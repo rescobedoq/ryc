@@ -275,28 +275,66 @@ public class CarController : MonoBehaviour, IQuizObserver
 
   private void UpdateWheelPose(WheelCollider collider, Transform mesh, bool allowFullRotation)
   {
+    if (collider == null || mesh == null)
+    {
+      Debug.LogError($"Null en Pose: Collider {collider?.name}, Mesh {mesh?.name}");
+      return;
+    }
+
     Vector3 pos;
     Quaternion quat;
     collider.GetWorldPose(out pos, out quat);
-    mesh.position = pos;
 
+    mesh.position = pos;
     if (allowFullRotation)
     {
       mesh.rotation = quat;
     }
+
+    Debug.Log($"Pose {mesh.name}: Pos {pos}, Rot {quat.eulerAngles}, AllowFull: {allowFullRotation}");  // TEMPORAL – Muestra si cambia al acelerar
   }
+
+  // private void UpdateWheelPose(WheelCollider collider, Transform mesh, bool allowFullRotation)
+  // {
+  //   Vector3 pos;
+  //   Quaternion quat;
+  //   collider.GetWorldPose(out pos, out quat);
+  //   mesh.position = pos;
+
+  //   if (allowFullRotation)
+  //   {
+  //     mesh.rotation = quat;
+  //   }
+  // }
 
   private void UpdateWheelMeshes()
   {
-    // Asume que el orden es: 0=FL, 1=FR, 2=RL, 3=RR
-    if (wheelMeshes.Length == 4 && wheelColliders.Length == 4)
+    if (wheelColliders == null || wheelMeshes == null || wheelColliders.Length != 4 || wheelMeshes.Length != 4)
     {
-      UpdateWheelPose(wheelColliders[0], wheelMeshes[0], true);  // FL
-      UpdateWheelPose(wheelColliders[1], wheelMeshes[1], true);  // FR
-      UpdateWheelPose(wheelColliders[2], wheelMeshes[2], false); // RL
-      UpdateWheelPose(wheelColliders[3], wheelMeshes[3], false); // RR
+      Debug.LogError("Arrays inválidos – Colliders: " + (wheelColliders?.Length ?? 0) + ", Meshes: " + (wheelMeshes?.Length ?? 0));
+      return;
     }
+
+    Debug.Log("UpdateWheelMeshes: Procesando 4 ruedas");  // TEMPORAL
+
+    // Orden fijo: 0=FL (steer/true), 1=FR, 2=RL (torque/false), 3=RR
+    UpdateWheelPose(wheelColliders[0], wheelMeshes[0], true);   // FL
+    UpdateWheelPose(wheelColliders[1], wheelMeshes[1], true);   // FR
+    UpdateWheelPose(wheelColliders[2], wheelMeshes[2], false);  // RL
+    UpdateWheelPose(wheelColliders[3], wheelMeshes[3], false);  // RR
   }
+
+  // private void UpdateWheelMeshes()
+  // {
+  //   // Asume que el orden es: 0=FL, 1=FR, 2=RL, 3=RR
+  //   if (wheelMeshes.Length == 4 && wheelColliders.Length == 4)
+  //   {
+  //     UpdateWheelPose(wheelColliders[0], wheelMeshes[0], true);  // FL
+  //     UpdateWheelPose(wheelColliders[1], wheelMeshes[1], true);  // FR
+  //     UpdateWheelPose(wheelColliders[2], wheelMeshes[2], false); // RL
+  //     UpdateWheelPose(wheelColliders[3], wheelMeshes[3], false); // RR
+  //   }
+  // }
 
   public void EnableControls() => controlsEnabled = true;
   public void DisableControls() => controlsEnabled = false;

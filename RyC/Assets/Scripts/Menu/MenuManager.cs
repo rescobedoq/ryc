@@ -158,8 +158,16 @@ public class MenuManager : MonoBehaviour
   {
     // Guarda en PlayerPrefs (usa currentMode)
     PlayerPrefs.SetInt("GameMode", (int)currentMode);
-    if (selectedCar1 != null) PlayerPrefs.SetString("Car1Name", selectedCar1.carName);
-    if (selectedCar2 != null) PlayerPrefs.SetString("Car2Name", selectedCar2.carName);
+    if (selectedCar1 != null)
+    {
+      PlayerPrefs.SetString("Car1Name", selectedCar1.carName);
+      PlayerPrefs.SetString("Car1Prefab", selectedCar1.prefabName);  // <-- NUEVO
+    }
+    if (selectedCar2 != null)
+    {
+      PlayerPrefs.SetString("Car2Name", selectedCar2.carName);
+      PlayerPrefs.SetString("Car2Prefab", selectedCar2.prefabName);  // <-- NUEVO
+    }
     PlayerPrefs.Save();
 
     SceneManager.LoadScene("GameScene");  // Tu escena de juego

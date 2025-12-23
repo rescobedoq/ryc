@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Audi
   m_EditorClassIdentifier: 
   carName: Audi
+  prefabName: CarPrefab3
   carImage: {fileID: 0}
   baseSpeed: 50
   baseAcceleration: 50

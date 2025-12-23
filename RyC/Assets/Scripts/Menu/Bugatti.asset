@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: Bugatti
   m_EditorClassIdentifier: 
   carName: Bugatti
+  prefabName: CarPrefab2
   carImage: {fileID: 0}
   baseSpeed: 50
   baseAcceleration: 50

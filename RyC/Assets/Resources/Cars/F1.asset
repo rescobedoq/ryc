@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: F1
   m_EditorClassIdentifier: 
   carName: F1
+  prefabName: CarPrefab
   carImage: {fileID: 21300000, guid: 4bc69fb07856b9c46bbd0c232945b214, type: 3}
   baseSpeed: 70
   baseAcceleration: 70

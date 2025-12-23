@@ -13,9 +13,10 @@ MonoBehaviour:
   m_Name: McLaren
   m_EditorClassIdentifier: 
   carName: McLaren
+  prefabName: CarPrefab
   carImage: {fileID: 21300000, guid: 4972e88552e737c41978af5aac70ec51, type: 3}
-  baseSpeed: 50
-  baseAcceleration: 50
-  steeringForce: 50
+  baseSpeed: 60
+  baseAcceleration: 80
+  steeringForce: 60
   brakeForce: 50
-  maxSpeed: 50
+  maxSpeed: 70

@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: McLaren
   m_EditorClassIdentifier: 
   carName: McLaren
+  prefabName: CarPrefab
   carImage: {fileID: 0}
   baseSpeed: 50
   baseAcceleration: 50

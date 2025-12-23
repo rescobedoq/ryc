@@ -3,10 +3,10 @@
 
 ## Integrantes del equipo
 
-- Choquehuanca Zapana Hernan Andy 100% (**Rama:** `hz07s/workspace`)
-- Larico Rodriguez Bryan Fernando 100% (**Rama:** `BryanLarico/workspace`)
-- Portugal Portugal Eduardo Sebastian 100% (**Rama:** `Eduardo-P/workspace`)
-- Mamani Anahua Victor Narciso 100% (**Rama:** `victorma18/workspace`)
+- Choquehuanca Zapana Hernan Andy (**Rama:** `hz07s/workspace`)
+- Larico Rodriguez Bryan Fernando (**Rama:** `BryanLarico/workspace`)
+- Portugal Portugal Eduardo Sebastian (**Rama:** `Eduardo-P/workspace`)
+- Mamani Anahua Victor Narciso (**Rama:** `victorma18/workspace`)
 
 # Proyecto: Videojuego Educativo de Carreras en Unity
 
@@ -41,11 +41,9 @@ Esta mecánica fomenta la toma de decisiones rápidas, la concentración y el ap
 
 **Semana 4:** Integración de recursos visuales, audio y balance.
 > Incorporación de assets gráficos definitivos, efectos de sonido y música. Mejoras en la interfaz de usuario. Uso del patrón Strategy para ajustar dinámicamente la dificultad y balance de recompensas/penalizaciones. Pruebas internas de jugabilidad y corrección de errores.
-> URL del video: https://www.youtube.com/watch?v=oFYZRrl4AD8
 
 **Semana 5:** Versión funcional, optimización y pruebas finales.
 > Integración completa de todos los módulos y recursos, asegurando el uso correcto de patrones como Singleton para la gestión global de datos y Factory para la creación de objetos. Optimización de rendimiento. Pruebas con usuarios reales, recopilación de feedback y corrección de bugs. Preparación de la documentación final y presentación del videojuego.
-> URL del video: https://youtu.be/EyEAponRSJU
 
 ## Tecnologías utilizadas
 

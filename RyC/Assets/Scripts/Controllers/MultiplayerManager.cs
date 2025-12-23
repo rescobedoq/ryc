@@ -8,65 +8,64 @@ public class MultiplayerManager : MonoBehaviour
   [SerializeField] private Transform spawnPoint1;  // Posición P1 (izquierda)
   [SerializeField] private Transform spawnPoint2;  // Posición P2 (derecha)
 
-//   private void Start()
-//   {
-//     // Spawn P1
-//     var car1 = Instantiate(carPrefab, spawnPoint1.position, spawnPoint1.rotation);
-//     var ctrl1 = car1.GetComponent<CarController>();
-//     ctrl1.SetPlayerIndex(PlayerIndex.One);
-
-//     // Spawn P2
-//     var car2 = Instantiate(carPrefab, spawnPoint2.position, spawnPoint2.rotation);
-//     var ctrl2 = car2.GetComponent<CarController>();
-//     ctrl2.SetPlayerIndex(PlayerIndex.Two);
-
-//     // Desactiva cámara principal si existe
-//     var mainCam = Camera.main;
-//     if (mainCam != null) mainCam.enabled = false;
-
-//     Debug.Log("¡Multijugador iniciado! P1: WASD+Espacio | P2: Flechas+Enter");
-//   }
   private void Start()
   {
     GameMode mode = (GameMode)PlayerPrefs.GetInt("GameMode", (int)GameMode.SinglePlayer);
     string car1Name = PlayerPrefs.GetString("Car1Name", "Default");
+    string car1PrefabName = PlayerPrefs.GetString("Car1Prefab", "CarPrefab");  // <-- NUEVO
     string car2Name = PlayerPrefs.GetString("Car2Name", "Default");
+    string car2PrefabName = PlayerPrefs.GetString("Car2Prefab", "CarPrefab");  // <-- NUEVO
   
     if (mode == GameMode.SinglePlayer)
     {
+      GameObject carPrefab1 = Resources.Load<GameObject>("Prefabs/Cars/" + car1PrefabName);
+      if (carPrefab1 == null)
+      {
+        Debug.LogError($"Prefab no encontrado: Prefabs/Cars/{car1PrefabName}");
+        return;
+      }
+        
       // Spawn solo P1, full screen
-      var car1 = Instantiate(carPrefab, spawnPoint1.position, spawnPoint1.rotation);
+      var car1 = Instantiate(carPrefab1, spawnPoint1.position, spawnPoint1.rotation);
       var ctrl1 = car1.GetComponent<CarController>();
-      ctrl1.SetPlayerIndex(PlayerIndex.One);
-      ApplyCarData(ctrl1, car1Name);  // Aplica atributos
-  
-      // Cámara full: En CameraController, si solo P1, set rect = new Rect(0,0,1,1);
-      //var camCtrl1 = car1.GetComponentInChildren<CameraController>();
-      //cam1.rect = new Rect(0f, 0f, 1f, 1f);  // Full screen
-      //if (camCtrl1 != null) camCtrl1.cam.rect = new Rect(0f, 0f, 1f, 1f);
-  
-      // Desactiva Main Cam
-      //var mainCam = Camera.main; if (mainCam) mainCam.enabled = false;
+      if (ctrl1 != null)
+      {
+        ctrl1.SetPlayerIndex(PlayerIndex.One);
+        ApplyCarData(ctrl1, car1Name);  // Stats de CarData
+      }
+
       var mainCam = Camera.main;
       if (mainCam != null) mainCam.enabled = false;
     }
     else  // MultiPlayer
     {
       // Como antes: Spawn 2, split
-      var car1 = Instantiate(carPrefab, spawnPoint1.position, spawnPoint1.rotation);
+      GameObject carPrefab1 = Resources.Load<GameObject>("Prefabs/Cars/" + car1PrefabName);
+      GameObject carPrefab2 = Resources.Load<GameObject>("Prefabs/Cars/" + car2PrefabName);
+      if (carPrefab1 == null || carPrefab2 == null)
+      {
+        Debug.LogError($"Prefab(s) no encontrados: {car1PrefabName}, {car2PrefabName}");
+        return;
+      }
+
+      var car1 = Instantiate(carPrefab1, spawnPoint1.position, spawnPoint1.rotation);
       var ctrl1 = car1.GetComponent<CarController>();
-      ctrl1.SetPlayerIndex(PlayerIndex.One);
-      ApplyCarData(ctrl1, car1Name);
-  
-      var car2 = Instantiate(carPrefab, spawnPoint2.position, spawnPoint2.rotation);
+      if (ctrl1 != null)
+      {
+        ctrl1.SetPlayerIndex(PlayerIndex.One);
+        ApplyCarData(ctrl1, car1Name);
+      }
+
+      var car2 = Instantiate(carPrefab2, spawnPoint2.position, spawnPoint2.rotation);
       var ctrl2 = car2.GetComponent<CarController>();
-      ctrl2.SetPlayerIndex(PlayerIndex.Two);
-      ApplyCarData(ctrl2, car2Name);
-  
-      // Cámaras split: Ya lo hace CameraController via playerIndex
+      if (ctrl2 != null)
+      {
+        ctrl2.SetPlayerIndex(PlayerIndex.Two);
+        ApplyCarData(ctrl2, car2Name);
+      }
     }
-  
-    Debug.Log($"Modo: {mode} | Car1: {car1Name} | Car2: {car2Name}");
+
+    Debug.Log($"Spawned {car1Name} (prefab: {car1PrefabName}) y {car2Name} (prefab: {car2PrefabName}) en modo {mode}");
   }
   
   private void ApplyCarData(CarController ctrl, string carName)
